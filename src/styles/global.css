@@ -137,3 +137,15 @@ a.cartao:hover { border-color: var(--accent); }
 
 .botao { display: inline-flex; align-items: center; gap: 0.4em; font-family: var(--sans); font-size: 0.95rem; padding: 0.5em 1em; border-radius: var(--radius); border: 1px solid var(--accent); color: var(--accent); text-decoration: none; }
 .botao:hover { background: var(--accent-soft); }
+
+/* Aviso de cookies */
+.aviso-cookies { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 50; max-width: 34rem; margin: 0 auto; padding: 1rem 1.1rem; background: var(--bg-elev); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 8px 28px rgb(0 0 0 / 0.18); font-family: var(--sans); font-size: 0.92rem; line-height: 1.5; }
+.aviso-cookies[hidden] { display: none; }
+.aviso-cookies p { margin: 0 0 0.8rem; }
+.aviso-cookies-botoes { display: flex; justify-content: flex-end; gap: 0.5rem; }
+.aviso-cookies button { font: inherit; font-size: 0.9rem; padding: 0.45em 1.1em; border-radius: var(--radius); cursor: pointer; }
+.botao-primario { background: var(--accent); color: var(--bg-elev); border: 1px solid var(--accent); }
+.botao-secundario { background: transparent; color: var(--text); border: 1px solid var(--border); }
+.botao-secundario:hover { border-color: var(--text-muted); }
+.link-cookies { font: inherit; color: inherit; background: none; border: 0; padding: 0; text-decoration: underline; text-underline-offset: 0.15em; cursor: pointer; }
+.link-cookies:hover { color: var(--accent); }

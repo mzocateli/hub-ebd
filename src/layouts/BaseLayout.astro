@@ -10,6 +10,9 @@ interface Props {
 }
 
 const { titulo, descricao = 'Conteúdo das aulas da Escola Bíblica Dominical e glossário de termos.', secao, largo = false } = Astro.props;
+// Google Analytics 4: só no build de produção, só carrega após consentimento e nunca em localhost.
+const GA_ID = 'G-FHQJX2BQL1';
+const analytics = import.meta.env.PROD;
 const tituloCompleto = titulo ? `${titulo} · EBD` : 'EBD · Aulas e glossário';
 const atual = (s: Props['secao']) => (s === secao ? 'page' : undefined);
 ---
@@ -40,6 +43,53 @@ const atual = (s: Props['secao']) => (s === secao ? 'page' : undefined);
         };
       })();
     </script>
+    {
+      analytics && (
+        <script is:inline define:vars={{ GA_ID }}>
+          // Consentimento de cookies (LGPD). 'aceito' | 'recusado' | null (ainda não decidiu).
+          (function () {
+            var CHAVE = 'consentimento-cookies';
+            var local = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+            var carregado = false;
+            function ler() { try { return localStorage.getItem(CHAVE); } catch (e) { return null; } }
+            function gravar(v) { try { localStorage.setItem(CHAVE, v); } catch (e) {} }
+            function carregar() {
+              if (carregado || local) return;
+              carregado = true;
+              var s = document.createElement('script');
+              s.async = true;
+              s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+              document.head.appendChild(s);
+              window.dataLayer = window.dataLayer || [];
+              window.gtag = function () { dataLayer.push(arguments); };
+              gtag('js', new Date());
+              gtag('config', GA_ID);
+            }
+            function apagarCookiesGA() {
+              var dominios = ['', location.hostname, '.' + location.hostname];
+              document.cookie.split(';').forEach(function (c) {
+                var nome = c.split('=')[0].trim();
+                if (nome.indexOf('_ga') !== 0) return;
+                dominios.forEach(function (d) {
+                  document.cookie = nome + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/' + (d ? '; domain=' + d : '');
+                });
+              });
+            }
+            window.__cookies = {
+              pendente: function () { return ler() === null; },
+              aceitar: function () { gravar('aceito'); carregar(); },
+              recusar: function () {
+                var tinhaAceito = ler() === 'aceito';
+                gravar('recusado');
+                apagarCookiesGA();
+                if (tinhaAceito && carregado) location.reload();
+              },
+            };
+            if (ler() === 'aceito') carregar();
+          })();
+        </script>
+      )
+    }
     <slot name="head" />
   </head>
   <body>
@@ -65,7 +115,37 @@ const atual = (s: Props['secao']) => (s === secao ? 'page' : undefined);
     <footer class="site-footer">
       <div class="container largo">
         Material de apoio da Escola Bíblica Dominical. Resumos para estudo pessoal. A Escritura é a única regra de fé e prática.
+        {analytics && <> · <button class="link-cookies" type="button" data-abrir-cookies>Cookies</button></>}
       </div>
     </footer>
+    {
+      analytics && (
+        <div class="aviso-cookies" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
+          <p>
+            Usamos cookies do Google Analytics apenas para medir as visitas e saber quais conteúdos são mais lidos.
+            Eles só são ativados se você aceitar.
+          </p>
+          <div class="aviso-cookies-botoes">
+            <button type="button" class="botao-secundario" data-cookies="recusar">Recusar</button>
+            <button type="button" class="botao-primario" data-cookies="aceitar">Aceitar</button>
+          </div>
+        </div>
+        <script is:inline>
+          (function () {
+            var aviso = document.querySelector('.aviso-cookies');
+            if (!aviso || !window.__cookies) return;
+            if (window.__cookies.pendente()) aviso.hidden = false;
+            aviso.addEventListener('click', function (e) {
+              var acao = e.target.getAttribute && e.target.getAttribute('data-cookies');
+              if (!acao) return;
+              window.__cookies[acao]();
+              aviso.hidden = true;
+            });
+            var abrir = document.querySelector('[data-abrir-cookies]');
+            if (abrir) abrir.addEventListener('click', function () { aviso.hidden = false; aviso.querySelector('button').focus(); });
+          })();
+        </script>
+      )
+    }
   </body>
 </html>
