@@ -9,12 +9,12 @@ fontes:
   - "MULLER, Richard A. Arminius and Arminianism. In: The Dictionary of Historical Theology. Paternoster, 2000, p. 33-35."
 ---
 
-O Sínodo reuniu-se na cidade de Dordrecht e contou com delegados das igrejas e universidades holandesas e também da Grã-Bretanha, de Genebra, de Heidelberg, de Bremen e de cidades suíças. Ele respondeu ponto por ponto aos [[remonstrantes]], organizando sua resposta em quatro capítulos:
+O Sínodo reuniu-se na cidade de Dordrecht e contou com delegados das igrejas e universidades holandesas e também da Grã-Bretanha, de Genebra, de Heidelberg, de Bremen e de cidades suíças. Ele respondeu ponto por ponto aos [[remonstrantes]], organizando sua resposta em cinco capítulos, dos quais o terceiro e o quarto são tratados juntos:
 
-1. eleição;
-2. morte de Cristo;
-3. e 4. (juntos) corrupção do ser humano e sua conversão a Deus;
-5. perseverança dos santos.
+- **capítulo 1:** eleição;
+- **capítulo 2:** morte de Cristo;
+- **capítulos 3 e 4:** corrupção do ser humano e sua conversão a Deus;
+- **capítulo 5:** perseverança dos santos.
 
 Cada capítulo tem duas partes: artigos que **afirmam** a doutrina e artigos que **rejeitam** erros específicos. Entre os destaques:
 

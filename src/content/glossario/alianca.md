@@ -15,6 +15,6 @@ A aliança não é um acordo entre partes iguais. É Deus quem toma a iniciativa
 
 A Bíblia fala de alianças com Noé, Abraão, Israel no Sinai e Davi, e promete uma nova aliança (Jeremias 31.31-34). Na Ceia, Jesus diz: "Este cálice é a nova aliança no meu sangue" (Lucas 22.20).
 
-A aliança é o tema da **Aula 1**. A Aula 0 deixou uma pergunta em aberto: **por que batizamos crianças?** A resposta passa pela aliança: já no século XVI, reformadores como Zwínglio e Bullinger explicavam o batismo como sinal da aliança, assim como a circuncisão no Antigo Testamento.
+A aliança é o tema da **Aula 1**. Na tradição reformada, ela organiza a leitura da Bíblia inteira e ajuda a explicar outras doutrinas, como o batismo, tratado na Aula 4.
 
 A [[confissao-de-fe-de-westminster|Confissão de Fé de Westminster]] dedica um capítulo inteiro ao tema (capítulo VII, "Do Pacto de Deus com o Homem").

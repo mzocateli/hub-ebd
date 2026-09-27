@@ -1,7 +1,7 @@
 ---
 termo: Presbítero
 variantes: [ancião, presbítero regente, presbítero docente]
-resumo: Oficial eleito para governar e pastorear a igreja. Na IPB, o pastor é presbítero docente e os presbíteros eleitos pela igreja local são presbíteros regentes.
+resumo: Oficial da igreja, eleito para governá-la e pastoreá-la. Na IPB, o pastor é presbítero docente e os presbíteros eleitos pela igreja local são presbíteros regentes.
 relacionados: [concilio, presbiteriano]
 series: [identidade-presbiteriana]
 fontes:

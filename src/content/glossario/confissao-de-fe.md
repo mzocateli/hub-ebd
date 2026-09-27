@@ -1,6 +1,6 @@
 ---
 termo: Confissão de fé
-variantes: [confissão, padrões subordinados]
+variantes: [confissão, normas subordinadas]
 resumo: Declaração pública daquilo que a igreja crê. O termo designa tanto o ato de confessar a fé quanto o documento que organiza o que a igreja entende que a Escritura ensina.
 relacionados: [credo, catecismo, confissao-de-fe-de-westminster, reformado]
 series: [identidade-presbiteriana]
@@ -9,13 +9,13 @@ fontes:
   - "HARVEY, T. Presbyterianism. In: DAVIE, Martin et al. (org.). New Dictionary of Theology: Historical and Systematic. IVP, 2016, p. 702-704."
 ---
 
-Confessar a fé é, antes de tudo, um **ato**: declarar publicamente em que se crê, às vezes com risco. Na igreja antiga, chamava-se "confessor" quem sustentava a fé sob perseguição. O documento escrito costuma nascer desse ato. A Confissão de Augsburgo, por exemplo, foi apresentada diante do imperador em 1530. (Não confundir com a confissão de pecados, outro uso da palavra.)
+Confessar a fé é, antes de tudo, um **ato**: declarar publicamente em que se crê, às vezes com risco. Na igreja antiga, chamava-se "confessor" quem sustentava a fé sob perseguição. O documento escrito costuma nascer desse ato. A Confissão de Augsburgo, por exemplo, foi apresentada diante do imperador Carlos V em 1530. (Não confundir com a confissão de pecados, outro uso da palavra.)
 
 As confissões são mais extensas que os [[credo|credos]]. Surgiram sobretudo no período da Reforma, quando as igrejas precisaram explicar publicamente o que ensinavam sobre Escritura, salvação, culto, sacramentos e governo da igreja.
 
 No uso reformado, uma confissão:
 
-- é **subordinada à Escritura**, que continua sendo a única regra de fé e prática. Por isso a tradição presbiteriana chama as confissões de *padrões subordinados*;
+- é **subordinada à Escritura**, que continua sendo a única regra de fé e prática. Por isso as confissões são chamadas de *normas subordinadas*: têm autoridade real, mas abaixo da Bíblia;
 - é **pública**, para que membros e outras igrejas saibam o que ela ensina;
 - é **examinável e revisável** à luz da própria Escritura.
 

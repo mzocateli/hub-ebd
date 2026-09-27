@@ -9,6 +9,6 @@ fontes:
 
 Do grego *sōtēria*, "salvação". Inclui temas como eleição, chamado eficaz, fé e arrependimento, justificação, adoção, santificação, perseverança e glorificação.
 
-Na Confissão de Westminster, a salvação é tratada junto com a aliança, sem que a eleição vire o princípio único de toda a teologia.
+Na Confissão de Westminster, a salvação é tratada junto com a aliança, sem fazer da eleição o princípio único de toda a teologia.
 
 O [[tulip|TULIP]] é um resumo soteriológico: responde a perguntas sobre a salvação. A fé reformada inclui a soteriologia, mas não se reduz a ela. A série trata a ordem da salvação na linguagem da Confissão de Westminster na Aula 3.

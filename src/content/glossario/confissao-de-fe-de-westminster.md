@@ -9,9 +9,9 @@ fontes:
   - "WESTMINSTER Confession. In: CROSS, F. L.; LIVINGSTONE, E. A. (org.). The Oxford Dictionary of the Christian Church. Oxford University Press, 2005, p. 1745."
 ---
 
-Foi redigida por teólogos ingleses com a participação de comissários escoceses. Concluída em dezembro de 1646, foi ratificada pela Igreja da Escócia em 1647 e aprovada pelo Parlamento inglês em 1648. Tornou-se o padrão doutrinário presbiteriano no mundo de língua inglesa, e várias confissões batistas do século XVII foram adaptadas a partir dela.
+Foi redigida por teólogos ingleses com a participação de comissários escoceses. Concluída em dezembro de 1646, foi ratificada pela Igreja da Escócia em 1647 e aprovada pelo Parlamento inglês em 1648. Tornou-se a principal referência doutrinária dos presbiterianos de língua inglesa, e várias confissões batistas do século XVII foram adaptadas a partir dela.
 
-A **edição adotada pela IPB tem 33 capítulos** e termina em "Do Juízo Final". Algumas versões americanas acrescentam capítulos posteriores, por isso às vezes aparecem contagens diferentes.
+A **edição adotada pela IPB tem 33 capítulos** e termina em "Do Juízo Final". Algumas versões norte-americanas acrescentam capítulos posteriores, por isso às vezes aparecem contagens diferentes.
 
 Ela vai muito além da doutrina da salvação. Boa parte do texto trata da vida cristã e de suas responsabilidades no mundo:
 

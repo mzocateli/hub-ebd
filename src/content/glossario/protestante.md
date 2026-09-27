@@ -1,7 +1,7 @@
 ---
 termo: Protestante
 variantes: [protestantismo]
-resumo: Famílias cristãs nascidas da Reforma do século XVI, ou dela descendentes, comprometidas com a autoridade suprema das Escrituras e com a justificação pela fé.
+resumo: Conjunto de igrejas e tradições cristãs nascidas da Reforma do século XVI, ou dela descendentes, comprometidas com a autoridade suprema das Escrituras e com a justificação pela fé.
 relacionados: [cristianismo-ocidental, calvinista, reformado, presbiteriano]
 series: [identidade-presbiteriana]
 fontes:
@@ -12,8 +12,8 @@ No mapa dos seis círculos usado na série, "protestante" é o terceiro círculo
 
 **O que não significa:**
 
-- Rejeitar toda tradição. Os reformadores citavam os pais da igreja, e as igrejas reformadas mantiveram o Credo Apostólico, o Niceno e o Atanasiano.
-- Que cada pessoa interpreta a Bíblia sozinha.
+- Rejeitar toda a tradição. Os reformadores citavam os pais da igreja, e as igrejas reformadas mantiveram o Credo Apostólico, o Niceno e o Atanasiano.
+- Que cada pessoa interprete a Bíblia sozinha.
 - Simplesmente "ser contra o catolicismo".
 
 O protestantismo reúne tradições bem diferentes entre si. Luteranos e reformados já se separaram em 1529, na questão da Ceia. Depois vieram anglicanos, batistas, metodistas e pentecostais, entre outros. No Brasil, muitos se identificam simplesmente como "evangélicos", palavra que costuma abarcar esse conjunto.

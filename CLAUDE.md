@@ -47,6 +47,12 @@ O professor prepara cada aula fora deste repositório, em `C:\Users\mateu\OneDri
 4. **Fidelidade confessional:** a IPB adota a Confissão de Westminster (33 capítulos) e os Catecismos Maior e Breve. Não importe posições de fontes que contrariem a CFW ou a Constituição da IPB (por exemplo, práticas de outras denominações presbiterianas) sem deixar claro que são de outra igreja.
 5. **Textos de dicionários:** servem para comparar, corrigir e complementar, **nunca** para copiar ou traduzir integralmente. Parafraseie e registre a obra no campo `fontes` do termo (formato: `AUTOR. Verbete. In: ORG. (org.). Obra. Editora, ano, p. X.`). A pasta `fontes/` é protegida por direito autoral e fica fora do git.
 6. Citações bíblicas em Almeida Revista e Atualizada (ARA).
+7. **Português natural, sem anglicismos nem decalques do inglês das fontes.** Exemplos:
+   - "famílias" para tradições ou denominações (leitor entende famílias humanas): use "igrejas e tradições";
+   - "padrões subordinados" (*subordinate standards*): use "normas subordinadas";
+   - "padrão doutrinário": use "referência doutrinária";
+   - "americano" quando o sentido é "norte-americano".
+   Revise também a coerência entre aula e glossário: o glossário não pode atribuir à aula algo que não está no resumo dela, e listas numeradas não podem contradizer a contagem do texto.
 
 ## Fluxos recorrentes
 

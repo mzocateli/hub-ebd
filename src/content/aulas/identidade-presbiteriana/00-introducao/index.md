@@ -59,7 +59,7 @@ Daí a pergunta que abre a série:
 >
 > 1 Pedro 3.14-16, Almeida Revista e Atualizada
 
-Pedro escreve a cristãos que viviam como "peregrinos e forasteiros" (1Pe 2.11). Eram difamados como malfeitores (2.12) e estranhados por antigos companheiros por causa da mudança de vida (4.3-4). O sofrimento em vista é sobretudo hostilidade social, suspeita e calúnia.
+Pedro escreve a cristãos que viviam como "peregrinos e forasteiros" (1Pe 2.11). Eram difamados como malfeitores (2.12), e a mudança de vida deles causava estranheza entre os antigos companheiros (4.3-4). O sofrimento em vista é sobretudo hostilidade social, suspeita e calúnia.
 
 ### A ordem do texto
 
@@ -121,7 +121,7 @@ A [[confissao-de-fe-de-westminster|Confissão de Fé de Westminster]] trata de m
 | Área | Temas |
 |---|---|
 | Fundamento | Escritura, Trindade, criação, providência, [[alianca\|aliança]] |
-| Salvação | Mediador, justificação, adoção, santificação |
+| Salvação | Cristo Mediador, justificação, adoção, santificação |
 | Vida cristã | Lei, liberdade de consciência, culto, casamento |
 | Igreja | Sacramentos, batismo, Ceia, concílios |
 | Consumação | Ressurreição e juízo final |
@@ -144,10 +144,10 @@ Para enxergar o conjunto, a série usa seis círculos como mapa de trabalho, de 
 |---|---|---|
 | Cristianismo | Fé histórica no Deus triúno, centrada em Jesus Cristo e no evangelho apostólico, expressa nos credos antigos. | Quem é Deus? Quem é Cristo? |
 | [[cristianismo-ocidental\|Ocidental]] | Tradição latina, herdeira sobretudo de Agostinho, que pôs pecado, graça e salvação no centro do debate e formou as perguntas que a Reforma retomou. | Qual o peso do pecado e da graça? |
-| [[protestante\|Protestante]] | Famílias nascidas da Reforma, que afirmam a autoridade suprema das Escrituras e a justificação pela fé. | Qual a autoridade? Como somos justificados? |
+| [[protestante\|Protestante]] | Igrejas e tradições nascidas da Reforma, que afirmam a autoridade suprema das Escrituras e a justificação pela fé. | Qual a autoridade? Como somos justificados? |
 | [[calvinista\|Calvinista]] | Maneira de ver toda a realidade diante da glória e da soberania de Deus, não apenas a salvação. | Como tudo se ordena para a glória de Deus? |
 | [[reformado\|Reformado]] | Forma confessional e eclesial dessa herança: confissões públicas, culto, sacramentos, aliança e disciplina. | Como confessamos, adoramos e vivemos? |
-| [[presbiteriano\|Presbiteriano]] | Ramo reformado governado por [[presbitero\|presbíteros]] reunidos em [[concilio\|concílios]] que se conectam e prestam contas. | Quem governa? Como as igrejas prestam contas? |
+| [[presbiteriano\|Presbiteriano]] | Ramo reformado governado por [[presbitero\|presbíteros]] reunidos em [[concilio\|concílios]], que ligam as igrejas entre si e as fazem prestar contas. | Quem governa? Como as igrejas prestam contas? |
 
 Este é um **mapa didático** da série, não uma classificação oficial. Muitos autores usam *calvinista* e *reformado* como sinônimos, e o diagrama não decide sozinho quem é ou não é ortodoxo. Cada círculo será aprofundado nas próximas aulas.
 
@@ -159,7 +159,7 @@ Este é um **mapa didático** da série, não uma classificação oficial. Muito
 >
 > Zacarias Ursino, Comentário do Catecismo de Heidelberg, I, p. 95
 
-Ursino não liga a ignorância a uma nota baixa. Ele a liga à **incapacidade de permanecer firme quando a fé é pressionada**, e é por isso que o fechamento volta a 1 Pedro.
+Para Ursino, ignorar a doutrina não é só falta de informação. Ele liga essa ignorância à **incapacidade de permanecer firme quando a fé é pressionada**, e é por isso que o fechamento volta a 1 Pedro.
 
 ### As aulas da série
 
