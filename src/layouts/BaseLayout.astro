@@ -1,0 +1,49 @@
+---
+import '../styles/global.css';
+import { url } from '../lib/url';
+
+interface Props {
+  titulo?: string;
+  descricao?: string;
+  secao?: 'inicio' | 'series' | 'glossario' | 'busca';
+  largo?: boolean;
+}
+
+const { titulo, descricao = 'Conteúdo das aulas da Escola Bíblica Dominical e glossário de termos.', secao, largo = false } = Astro.props;
+const tituloCompleto = titulo ? `${titulo} · EBD` : 'EBD · Aulas e glossário';
+const atual = (s: Props['secao']) => (s === secao ? 'page' : undefined);
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{tituloCompleto}</title>
+    <meta name="description" content={descricao} />
+    <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
+    <slot name="head" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container largo">
+        <a class="marca" href={url('/')}>EBD <span>·</span> Aulas</a>
+        <nav class="site-nav" aria-label="Principal">
+          <a href={url('/')} aria-current={atual('inicio')}>Séries</a>
+          <a href={url('/glossario/')} aria-current={atual('glossario')}>Glossário</a>
+          <a href={url('/busca/')} aria-current={atual('busca')}>Buscar</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class:list={['container', { largo }]}>
+        <slot />
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="container largo">
+        Material de apoio da Escola Bíblica Dominical. Resumos para estudo pessoal. A Escritura é a única regra de fé e prática.
+      </div>
+    </footer>
+  </body>
+</html>

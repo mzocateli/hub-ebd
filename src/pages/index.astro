@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AulaCard from '../components/AulaCard.astro';
+import { getAulas, getSeries, urlSerie } from '../lib/conteudo';
+import { url } from '../lib/url';
+
+const series = await getSeries();
+const aulas = await getAulas();
+const tituloSerie = new Map(series.map((s) => [s.id, s.data.titulo]));
+const recentes = [...aulas].sort((a, b) => b.data.data.getTime() - a.data.data.getTime()).slice(0, 3);
+
+const rotuloStatus = { 'em-andamento': 'Em andamento', concluida: 'Concluída', planejada: 'Em breve' } as const;
+const publicadas = (serieId: string) => aulas.filter((a) => a.data.serie.id === serieId).length;
+---
+
+<BaseLayout secao="inicio" largo>
+  <p class="rotulo">Escola Bíblica Dominical</p>
+  <h1>Aulas e glossário</h1>
+  <p class="muted" style="max-width: 38rem">
+    Aqui ficam os resumos das aulas já dadas, os textos bíblicos e as citações lidas em sala, os slides e um glossário com os
+    termos que aparecem ao longo das séries.
+  </p>
+
+  <h2>Séries</h2>
+  <div class="grade">
+    {
+      series.map((s) => (
+        <a class="cartao" href={urlSerie(s.id)}>
+          <div class="rotulo">{rotuloStatus[s.data.status]} · {s.data.periodo}</div>
+          <h3>{s.data.titulo}</h3>
+          <p>{s.data.descricao}</p>
+          <p class="muted" style="font-family: var(--sans); font-size: 0.85rem">
+            {publicadas(s.id)} de {s.data.programa.length} aulas disponíveis
+          </p>
+        </a>
+      ))
+    }
+  </div>
+
+  {
+    recentes.length > 0 && (
+      <>
+        <h2>Aulas recentes</h2>
+        <div class="grade">
+          {recentes.map((a) => (
+            <AulaCard aula={a} mostrarSerie={tituloSerie.get(a.data.serie.id)} />
+          ))}
+        </div>
+      </>
+    )
+  }
+
+  <h2>Glossário</h2>
+  <p>
+    Termos como <em>regra da fé</em>, <em>confissão</em>, <em>reformado</em> e <em>presbitério</em>, explicados em poucas linhas.
+  </p>
+  <a class="botao" href={url('/glossario/')}>Abrir o glossário →</a>
+</BaseLayout>

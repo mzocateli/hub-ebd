@@ -1,0 +1,14 @@
+---
+import { formatarData, nn, urlAula, type Aula } from '../lib/conteudo';
+
+interface Props { aula: Aula; mostrarSerie?: string }
+const { aula, mostrarSerie } = Astro.props;
+const d = aula.data;
+---
+
+<a class="cartao" href={urlAula(aula)}>
+  <div class="rotulo">{mostrarSerie ? `${mostrarSerie} · ` : ''}Aula {nn(d.numero)}</div>
+  <h3>{d.titulo}</h3>
+  {d.subtitulo && <p>{d.subtitulo}</p>}
+  <p class="muted" style="font-family: var(--sans); font-size: 0.85rem">{d.texto_principal} · {formatarData(d.data)}</p>
+</a>

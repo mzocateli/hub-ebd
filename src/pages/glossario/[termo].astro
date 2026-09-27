@@ -1,0 +1,90 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getAulas, getSeries, getTermos, nn, urlAula, urlTermo, type Termo } from '../../lib/conteudo';
+import { url } from '../../lib/url';
+
+export async function getStaticPaths() {
+  const termos = await getTermos();
+  return termos.map((termo) => ({ params: { termo: termo.id }, props: { termo } }));
+}
+
+const { termo } = Astro.props as { termo: Termo };
+const d = termo.data;
+const idsRelacionados = new Set(d.relacionados.map((r) => r.id));
+const relacionados = (await getTermos()).filter((t) => idsRelacionados.has(t.id));
+// "Aparece nas aulas" é calculado a partir do frontmatter `termos` de cada aula.
+const aulas = (await getAulas()).filter((a) => a.data.termos.some((t) => t.id === termo.id));
+const tituloSerie = new Map((await getSeries()).map((s) => [s.id, s.data.titulo]));
+const { Content } = await render(termo);
+---
+
+<BaseLayout titulo={d.termo} descricao={d.resumo} secao="glossario">
+  <p class="migalhas"><a href={url('/glossario/')}>Glossário</a> /</p>
+
+  <article data-pagefind-body>
+    <p class="rotulo">Glossário</p>
+    <h1 data-pagefind-meta="title">{d.termo}</h1>
+    {
+      d.variantes.length > 0 && (
+        <p class="muted variantes">Também: {d.variantes.join(', ')}</p>
+      )
+    }
+    <p class="resumo">{d.resumo}</p>
+    <div class="prosa">
+      <Content />
+    </div>
+  </article>
+
+  {
+    relacionados.length > 0 && (
+      <section class="aside-bloco">
+        <h2>Termos relacionados</h2>
+        <ul class="chips">
+          {relacionados.map((t) => (
+            <li>
+              <a class="chip" href={urlTermo(t.id)} title={t.data.resumo}>{t.data.termo}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {
+    aulas.length > 0 && (
+      <section class="aside-bloco">
+        <h2>Aparece nas aulas</h2>
+        <ul>
+          {aulas.map((a) => (
+            <li>
+              <a href={urlAula(a)}>
+                {tituloSerie.get(a.data.serie.id)} · Aula {nn(a.data.numero)}: {a.data.titulo}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {
+    d.fontes.length > 0 && (
+      <section class="aside-bloco fontes">
+        <h2>Fontes consultadas</h2>
+        <ul>
+          {d.fontes.map((f) => (
+            <li>{f}</li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .resumo { font-size: 1.2rem; }
+  .fontes ul { font-size: 0.9rem; color: var(--text-muted); padding-left: 1.2em; }
+  .fontes li { margin: 0.4em 0; }
+  .variantes { font-family: var(--sans); font-size: 0.9rem; margin-top: -0.6em; }
+</style>

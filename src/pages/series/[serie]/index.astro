@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getAulas, getSeries, nn, urlAula, type Serie } from '../../../lib/conteudo';
+import { url } from '../../../lib/url';
+
+export async function getStaticPaths() {
+  const series = await getSeries();
+  return series.map((serie) => ({ params: { serie: serie.id }, props: { serie } }));
+}
+
+const { serie } = Astro.props as { serie: Serie };
+const aulas = await getAulas(serie.id);
+const porNumero = new Map(aulas.map((a) => [a.data.numero, a]));
+const { titulo, descricao, periodo, blocos, programa } = serie.data;
+---
+
+<BaseLayout titulo={titulo} descricao={descricao} secao="series">
+  <p class="migalhas"><a href={url('/')}>Séries</a> /</p>
+  <p class="rotulo">{periodo}</p>
+  <h1>{titulo}</h1>
+  <p>{descricao}</p>
+
+  {
+    blocos.map((bloco) => {
+      const itens = programa.filter((p) => p.bloco === bloco.id);
+      if (itens.length === 0) return null;
+      return (
+        <section>
+          <h2>{bloco.titulo}</h2>
+          {bloco.descricao && <p class="muted">{bloco.descricao}</p>}
+          <ol class="programa">
+            {itens.map((p) => {
+              const aula = porNumero.get(p.numero);
+              return (
+                <li class:list={{ planejada: !aula }}>
+                  <span class="num">{nn(p.numero)}</span>
+                  {aula ? (
+                    <a href={urlAula(aula)}>{aula.data.titulo}</a>
+                  ) : (
+                    <span>
+                      {p.titulo} <small>em breve</small>
+                    </span>
+                  )}
+                </li>
+              );
+            })}
+          </ol>
+        </section>
+      );
+    })
+  }
+</BaseLayout>
+
+<style>
+  .programa { list-style: none; padding: 0; margin: 0; font-family: var(--sans); }
+  .programa li { display: flex; gap: 0.9rem; align-items: baseline; padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
+  .num { font-variant-numeric: tabular-nums; color: var(--text-muted); font-size: 0.9rem; min-width: 1.6rem; }
+  .programa a { font-weight: 600; text-decoration: none; }
+  .programa a:hover { text-decoration: underline; }
+  .planejada { color: var(--planned); }
+  .planejada small { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; margin-left: 0.4em; }
+</style>

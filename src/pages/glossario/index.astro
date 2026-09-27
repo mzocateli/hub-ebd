@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getSeries, getTermos, inicial, urlTermo, type Termo } from '../../lib/conteudo';
+
+const termos = await getTermos();
+const series = await getSeries();
+
+const grupos = new Map<string, Termo[]>();
+for (const t of termos) {
+  const letra = inicial(t.data.termo);
+  grupos.set(letra, [...(grupos.get(letra) ?? []), t]);
+}
+const textoBusca = (t: Termo) =>
+  [t.data.termo, ...t.data.variantes, t.data.resumo]
+    .join(' ')
+    .normalize('NFD')
+    .replace(/\p{Diacritic}/gu, '')
+    .toLowerCase();
+---
+
+<BaseLayout titulo="Glossário" descricao="Termos teológicos e históricos usados nas aulas." secao="glossario">
+  <p class="rotulo">Consulta rápida</p>
+  <h1>Glossário</h1>
+  <p class="muted">
+    {termos.length} termos usados nas aulas. Toque em um termo para ver a explicação completa e as aulas em que ele aparece.
+  </p>
+
+  <div class="filtros">
+    <input id="filtro-texto" type="search" placeholder="Filtrar termos…" aria-label="Filtrar termos" autocomplete="off" />
+    {
+      series.length > 1 && (
+        <select id="filtro-serie" aria-label="Filtrar por série">
+          <option value="">Todas as séries</option>
+          {series.map((s) => (
+            <option value={s.id}>{s.data.titulo}</option>
+          ))}
+        </select>
+      )
+    }
+  </div>
+
+  <nav class="letras" aria-label="Letras">
+    {[...grupos.keys()].map((l) => <a href={`#letra-${l}`}>{l}</a>)}
+  </nav>
+
+  {
+    [...grupos].map(([letra, lista]) => (
+      <section class="grupo" id={`letra-${letra}`}>
+        <h2>{letra}</h2>
+        <dl>
+          {lista.map((t) => (
+            <div class="item" data-busca={textoBusca(t)} data-series={t.data.series.map((s) => s.id).join(' ')}>
+              <dt>
+                <a href={urlTermo(t.id)}>{t.data.termo}</a>
+                {t.data.variantes.length > 0 && <span class="muted variantes"> · {t.data.variantes.join(', ')}</span>}
+              </dt>
+              <dd>{t.data.resumo}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+    ))
+  }
+  <p id="vazio" class="muted" hidden>Nenhum termo encontrado.</p>
+</BaseLayout>
+
+<style>
+  .filtros { display: flex; gap: 0.6rem; flex-wrap: wrap; margin: 1.25rem 0 0.75rem; }
+  .filtros input,
+  .filtros select { font-family: var(--sans); font-size: 1rem; padding: 0.55em 0.8em; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-elev); color: var(--text); }
+  .filtros input { flex: 1 1 14rem; min-width: 0; }
+  .letras { display: flex; flex-wrap: wrap; gap: 0.35rem; font-family: var(--sans); font-size: 0.9rem; margin-bottom: 0.5rem; }
+  .letras a { text-decoration: none; padding: 0.1em 0.5em; border-radius: 6px; background: var(--accent-soft); }
+  .grupo h2 { font-size: 1.1rem; color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.2em; margin-top: 1.8em; }
+  dl { margin: 0; }
+  .item { padding: 0.55rem 0; }
+  .item[hidden], .grupo[hidden] { display: none; }
+  dt { font-family: var(--sans); font-weight: 600; }
+  dt a { text-decoration: none; }
+  dt a:hover { text-decoration: underline; }
+  .variantes { font-weight: 400; font-size: 0.85rem; }
+  dd { margin: 0.15em 0 0; font-size: 1rem; }
+</style>
+
+<script>
+  const texto = document.querySelector<HTMLInputElement>('#filtro-texto');
+  const serie = document.querySelector<HTMLSelectElement>('#filtro-serie');
+  const normalizar = (s: string) => s.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase().trim();
+
+  function filtrar() {
+    const q = normalizar(texto?.value ?? '');
+    const s = serie?.value ?? '';
+    let total = 0;
+    document.querySelectorAll<HTMLElement>('.grupo').forEach((grupo) => {
+      let visiveis = 0;
+      grupo.querySelectorAll<HTMLElement>('.item').forEach((item) => {
+        const ok =
+          (!q || (item.dataset.busca ?? '').includes(q)) &&
+          (!s || (item.dataset.series ?? '').split(' ').includes(s));
+        item.hidden = !ok;
+        if (ok) visiveis++;
+      });
+      grupo.hidden = visiveis === 0;
+      total += visiveis;
+    });
+    const vazio = document.querySelector<HTMLElement>('#vazio');
+    if (vazio) vazio.hidden = total > 0;
+  }
+
+  texto?.addEventListener('input', filtrar);
+  serie?.addEventListener('change', filtrar);
+</script>

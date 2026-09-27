@@ -1,0 +1,112 @@
+---
+import { getEntry, render } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { formatarData, getAulas, getTermos, nn, urlAula, urlSerie, urlTermo, type Aula } from '../../../lib/conteudo';
+import { url } from '../../../lib/url';
+
+export async function getStaticPaths() {
+  const aulas = await getAulas();
+  return aulas.map((aula) => {
+    const daSerie = aulas.filter((a) => a.data.serie.id === aula.data.serie.id);
+    const i = daSerie.indexOf(aula);
+    return {
+      params: { serie: aula.data.serie.id, aula: `aula-${nn(aula.data.numero)}` },
+      props: { aula, anterior: daSerie[i - 1], proxima: daSerie[i + 1] },
+    };
+  });
+}
+
+interface Props { aula: Aula; anterior?: Aula; proxima?: Aula }
+const { aula, anterior, proxima } = Astro.props;
+const d = aula.data;
+const serie = await getEntry(d.serie);
+const idsTermos = new Set(d.termos.map((t) => t.id));
+const termos = (await getTermos()).filter((t) => idsTermos.has(t.id));
+const { Content } = await render(aula);
+---
+
+<BaseLayout titulo={`Aula ${nn(d.numero)} · ${d.titulo}`} descricao={d.grande_ideia}>
+  <p class="migalhas">
+    <a href={url('/')}>Séries</a> / <a href={urlSerie(serie.id)}>{serie.data.titulo}</a> /
+  </p>
+
+  <article data-pagefind-body>
+    <p class="rotulo">{serie.data.titulo} · Aula {nn(d.numero)}</p>
+    <h1 data-pagefind-meta="title">{d.titulo}</h1>
+    {d.subtitulo && <p style="font-size: 1.2rem; margin-top: -0.3em">{d.subtitulo}</p>}
+    <p class="muted" style="font-family: var(--sans); font-size: 0.9rem">
+      Texto principal: <strong>{d.texto_principal}</strong>
+      {d.pano_de_fundo && <> · Pano de fundo: {d.pano_de_fundo}</>}
+      <br />Aula dada em {formatarData(d.data)}
+    </p>
+
+    <div class="destaque">
+      <p class="rotulo">Pergunta central</p>
+      <p><strong>{d.pergunta_central}</strong></p>
+      <p class="rotulo" style="margin-top: 0.9em">Grande ideia</p>
+      <p>{d.grande_ideia}</p>
+    </div>
+
+    <div class="prosa">
+      <Content />
+    </div>
+  </article>
+
+  {
+    termos.length > 0 && (
+      <section class="aside-bloco">
+        <h2>Termos desta aula</h2>
+        <ul class="chips">
+          {termos.map((t) => (
+            <li>
+              <a class="chip" href={urlTermo(t.id)} title={t.data.resumo}>{t.data.termo}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {
+    d.slides && (
+      <section class="aside-bloco">
+        <h2>Material da aula</h2>
+        <a class="botao" href={url(d.slides)} download>
+          Baixar slides (PDF)
+        </a>
+      </section>
+    )
+  }
+
+  {
+    d.referencias.length > 0 && (
+      <section class="aside-bloco">
+        <h2>Referências</h2>
+        <ul class="referencias">
+          {d.referencias.map((r) => (
+            <li>
+              {r.texto}
+              {r.url && (
+                <>
+                  {' '}
+                  <a href={r.url} target="_blank" rel="noopener">Acessar fonte ↗</a>
+                </>
+              )}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  <nav class="nav-aulas" aria-label="Aulas da série">
+    {anterior && <a href={urlAula(anterior)}>← Aula {nn(anterior.data.numero)}: {anterior.data.titulo}</a>}
+    {proxima && <a class="proxima" href={urlAula(proxima)}>Aula {nn(proxima.data.numero)}: {proxima.data.titulo} →</a>}
+  </nav>
+</BaseLayout>
+
+<style>
+  .referencias { font-size: 0.95rem; padding-left: 1.2em; }
+  .referencias li { margin: 0.5em 0; }
+  .referencias a { font-family: var(--sans); font-size: 0.85rem; white-space: nowrap; }
+</style>
