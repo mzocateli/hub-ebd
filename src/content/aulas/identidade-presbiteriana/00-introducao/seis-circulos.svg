@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="Seis círculos concêntricos, de fora para dentro: Cristianismo, Ocidental, Protestante, Calvinista, Reformado, Presbiteriano">
+<rect width="800" height="800" fill="#ffffff"/>
+<g font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" text-anchor="middle" fill="#23402a">
+<circle cx="400" cy="400" r="380" fill="#dfe8e0" stroke="#2c5234" stroke-width="4"/>
+<circle cx="400" cy="400" r="324" fill="#e8efe9" stroke="#2c5234" stroke-width="4"/>
+<circle cx="400" cy="400" r="268" fill="#eef3ef" stroke="#3d6b47" stroke-width="4"/>
+<circle cx="400" cy="400" r="212" fill="#f3f6f3" stroke="#7fa287" stroke-width="4"/>
+<circle cx="400" cy="400" r="156" fill="#f3e6c3" stroke="#9a7a2c" stroke-width="4"/>
+<circle cx="400" cy="400" r="100" fill="#ffffff" stroke="#2c5234" stroke-width="4"/>
+<text x="400" y="56" font-size="22" letter-spacing="1">CRISTIANISMO</text>
+<text x="400" y="112" font-size="22" letter-spacing="1">OCIDENTAL</text>
+<text x="400" y="168" font-size="22" letter-spacing="1">PROTESTANTE</text>
+<text x="400" y="224" font-size="22" letter-spacing="1">CALVINISTA</text>
+<text x="400" y="280" font-size="22" letter-spacing="1">REFORMADO</text>
+<text x="400" y="408" font-size="21" letter-spacing="1">PRESBITERIANO</text>
+</g>
+</svg>
