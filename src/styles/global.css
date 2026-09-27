@@ -16,8 +16,9 @@
   color-scheme: light;
 }
 
+/* Tema escuro: segue o sistema, a menos que o leitor tenha escolhido um tema no menu (data-theme). */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme='light']) {
     --bg: #1a1816;
     --bg-elev: #23201d;
     --text: #ebe6de;
@@ -29,6 +30,19 @@
     --planned: #6f685e;
     color-scheme: dark;
   }
+}
+
+:root[data-theme='dark'] {
+  --bg: #1a1816;
+  --bg-elev: #23201d;
+  --text: #ebe6de;
+  --text-muted: #a8a095;
+  --border: #3a352f;
+  --accent: #e39a82;
+  --accent-soft: #3a2621;
+  --quote-bg: #26221e;
+  --planned: #6f685e;
+  color-scheme: dark;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -62,9 +76,16 @@ img { max-width: 100%; height: auto; }
 .site-header .container { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 3.5rem; flex-wrap: wrap; }
 .marca { font-weight: 700; color: var(--text); text-decoration: none; font-size: 1.05rem; }
 .marca span { color: var(--accent); }
-.site-nav { display: flex; gap: 1.1rem; font-size: 0.95rem; }
+.site-nav { display: flex; align-items: center; gap: 1.1rem; font-size: 0.95rem; }
 .site-nav a { color: var(--text-muted); text-decoration: none; }
 .site-nav a:hover, .site-nav a[aria-current='page'] { color: var(--accent); }
+
+.tema { display: inline-grid; place-items: center; width: 2.1rem; height: 2.1rem; padding: 0; border: 1px solid var(--border); border-radius: 999px; background: transparent; color: var(--text-muted); cursor: pointer; }
+.tema:hover { color: var(--accent); border-color: var(--accent); }
+.tema svg { width: 1.05rem; height: 1.05rem; }
+.tema .icone-sol { display: none; }
+:root[data-theme-atual='dark'] .tema .icone-sol { display: block; }
+:root[data-theme-atual='dark'] .tema .icone-lua { display: none; }
 
 main { padding: 1.5rem 0 4rem; }
 
