@@ -1,6 +1,7 @@
 ---
 import { getEntry, render } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import IndiceAula, { type ItemIndice } from '../../../components/IndiceAula.astro';
 import { formatarData, getAulas, getTermos, nn, urlAula, urlSerie, urlTermo, type Aula } from '../../../lib/conteudo';
 import { url } from '../../../lib/url';
 
@@ -22,15 +23,25 @@ const d = aula.data;
 const serie = await getEntry(d.serie);
 const idsTermos = new Set(d.termos.map((t) => t.id));
 const termos = (await getTermos()).filter((t) => idsTermos.has(t.id));
-const { Content } = await render(aula);
+const { Content, headings } = await render(aula);
+
+// Índice: títulos do Markdown (h2 e h3) + as seções fixas da página.
+const indice: ItemIndice[] = headings.filter((h) => h.depth === 2 || h.depth === 3);
+const extras: ItemIndice[] = [
+  ...(termos.length > 0 ? [{ depth: 2, slug: 'termos-da-aula', text: 'Termos desta aula' }] : []),
+  ...(d.slides ? [{ depth: 2, slug: 'material-da-aula', text: 'Material da aula' }] : []),
+  ...(d.referencias.length > 0 ? [{ depth: 2, slug: 'referencias', text: 'Referências' }] : []),
+];
 ---
 
-<BaseLayout titulo={`Aula ${nn(d.numero)} · ${d.titulo}`} descricao={d.grande_ideia}>
+<BaseLayout titulo={`Aula ${nn(d.numero)} · ${d.titulo}`} descricao={d.grande_ideia} largo>
+<div class="aula-grade">
+<div class="aula-conteudo">
   <p class="migalhas">
     <a href={url('/')}>Séries</a> / <a href={urlSerie(serie.id)}>{serie.data.titulo}</a> /
   </p>
 
-  <article data-pagefind-body>
+  <header data-pagefind-body>
     <p class="rotulo">{serie.data.titulo} · Aula {nn(d.numero)}</p>
     <h1 data-pagefind-meta="title">{d.titulo}</h1>
     {d.subtitulo && <p style="font-size: 1.2rem; margin-top: -0.3em">{d.subtitulo}</p>}
@@ -46,16 +57,31 @@ const { Content } = await render(aula);
       <p class="rotulo" style="margin-top: 0.9em">Grande ideia</p>
       <p>{d.grande_ideia}</p>
     </div>
+  </header>
 
-    <div class="prosa">
-      <Content />
-    </div>
+  <details class="indice-movel" data-pagefind-ignore>
+    <summary>
+      <span class="rotulo">Nesta aula</span>
+      <span class="indice-atual">Índice</span>
+    </summary>
+    <nav aria-label="Índice da aula">
+      <IndiceAula itens={indice} extras={extras} />
+    </nav>
+    <nav class="atalhos" aria-label="Atalhos do site">
+      <a href={url('/glossario/')}>Glossário</a>
+      <a href={urlSerie(serie.id)}>Programa da série</a>
+      <a href={url('/busca/')}>Buscar</a>
+    </nav>
+  </details>
+
+  <article class="prosa" data-pagefind-body>
+    <Content />
   </article>
 
   {
     termos.length > 0 && (
       <section class="aside-bloco">
-        <h2>Termos desta aula</h2>
+        <h2 id="termos-da-aula">Termos desta aula</h2>
         <ul class="chips">
           {termos.map((t) => (
             <li>
@@ -70,7 +96,7 @@ const { Content } = await render(aula);
   {
     d.slides && (
       <section class="aside-bloco">
-        <h2>Material da aula</h2>
+        <h2 id="material-da-aula">Material da aula</h2>
         <a class="botao" href={url(d.slides)} download>
           Baixar slides (PDF)
         </a>
@@ -81,7 +107,7 @@ const { Content } = await render(aula);
   {
     d.referencias.length > 0 && (
       <section class="aside-bloco">
-        <h2>Referências</h2>
+        <h2 id="referencias">Referências</h2>
         <ul class="referencias">
           {d.referencias.map((r) => (
             <li>
@@ -103,9 +129,122 @@ const { Content } = await render(aula);
     {anterior && <a href={urlAula(anterior)}>← Aula {nn(anterior.data.numero)}: {anterior.data.titulo}</a>}
     {proxima && <a class="proxima" href={urlAula(proxima)}>Aula {nn(proxima.data.numero)}: {proxima.data.titulo} →</a>}
   </nav>
+</div>
+
+  <aside class="indice-lateral" data-pagefind-ignore>
+    <nav aria-label="Índice da aula">
+      <p class="rotulo">Nesta aula</p>
+      <IndiceAula itens={indice} extras={extras} />
+      <a class="topo" href="#">↑ Voltar ao topo</a>
+    </nav>
+  </aside>
+</div>
 </BaseLayout>
 
+<script>
+  // Destaca no índice a seção em leitura e mostra o nome dela na barra do celular.
+  const links = [...document.querySelectorAll<HTMLAnchorElement>('[data-indice-link]')];
+  const slugs = [...new Set(links.map((a) => a.dataset.indiceLink!))];
+  const alvos = slugs.map((s) => document.getElementById(s)).filter((e): e is HTMLElement => e !== null);
+  const atual = document.querySelector<HTMLElement>('.indice-atual');
+  const movel = document.querySelector<HTMLDetailsElement>('.indice-movel');
+  let ativo = '';
+  let travado = ''; // seção escolhida no índice; vale até a rolagem terminar
+
+  function secaoEmLeitura() {
+    const fim = innerHeight + scrollY >= document.documentElement.scrollHeight - 4;
+    if (fim && alvos.length) return alvos[alvos.length - 1].id;
+    let id = '';
+    for (const alvo of alvos) {
+      if (alvo.getBoundingClientRect().top <= 110) id = alvo.id;
+      else break;
+    }
+    return id;
+  }
+
+  function marcar(forcado?: string) {
+    const id = forcado ?? (travado || secaoEmLeitura());
+    if (id === ativo) return;
+    ativo = id;
+    const link = links.find((a) => a.dataset.indiceLink === id);
+    const secao = link?.dataset.pai ?? id;
+    for (const a of links) a.setAttribute('aria-current', String(a.dataset.indiceLink === id));
+    for (const li of document.querySelectorAll<HTMLElement>('[data-secao]')) li.classList.toggle('aberta', li.dataset.secao === secao);
+    if (atual) atual.textContent = link?.textContent ?? 'Índice';
+
+    // Se a coluna lateral precisar rolar, rola só ela (nunca a página).
+    const lateral = document.querySelector<HTMLElement>('.indice-lateral nav');
+    const ativoLateral = lateral?.querySelector<HTMLElement>('[aria-current="true"]');
+    if (lateral && ativoLateral && lateral.scrollHeight > lateral.clientHeight) {
+      const a = ativoLateral.getBoundingClientRect();
+      const n = lateral.getBoundingClientRect();
+      if (a.top < n.top + 40) lateral.scrollTop -= n.top + 40 - a.top;
+      else if (a.bottom > n.bottom - 40) lateral.scrollTop += a.bottom - (n.bottom - 40);
+    }
+  }
+
+  let pendente = false;
+  addEventListener('scroll', () => {
+    if (pendente) return;
+    pendente = true;
+    requestAnimationFrame(() => { pendente = false; marcar(); });
+  }, { passive: true });
+  marcar();
+
+  // Ao escolher uma seção no índice, ela fica ativa já, sem passar pelas intermediárias.
+  let destravar = 0;
+  const soltar = () => { travado = ''; marcar(); };
+  for (const a of links) {
+    a.addEventListener('click', () => {
+      travado = a.dataset.indiceLink!;
+      marcar(travado);
+      clearTimeout(destravar);
+      destravar = window.setTimeout(soltar, 1200); // navegadores sem o evento scrollend
+    });
+  }
+  addEventListener('scrollend', () => { if (travado) { clearTimeout(destravar); soltar(); } });
+
+  // No celular, fecha a barra ao escolher uma seção.
+  movel?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => { movel.open = false; }));
+</script>
+
 <style>
+  .aula-conteudo { max-width: var(--measure); margin: 0 auto; }
+  .indice-lateral { display: none; }
+
+  /* Celular e tablet: barra fixa no topo, recolhível. */
+  .indice-movel { position: sticky; top: 0; z-index: 5; margin: 1.5rem -16px 0; padding: 0 16px; background: var(--bg); border-bottom: 1px solid var(--border); border-top: 1px solid var(--border); font-family: var(--sans); }
+  .indice-movel summary { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.65rem 0; cursor: pointer; list-style: none; }
+  .indice-movel summary::-webkit-details-marker { display: none; }
+  .indice-movel summary::after { content: '▾'; margin-left: auto; color: var(--text-muted); }
+  .indice-movel[open] summary::after { content: '▴'; }
+  .indice-movel .rotulo { margin: 0; flex: none; }
+  .indice-atual { font-size: 0.92rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+  .indice-movel nav:not(.atalhos) { max-height: 55vh; overflow-y: auto; overscroll-behavior: contain; padding: 0.25rem 0 0.9rem; }
+  .atalhos { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 0.8rem 0 0.9rem; border-top: 1px solid var(--border); }
+  .atalhos a { font-size: 0.85rem; padding: 0.35em 0.85em; border-radius: 999px; background: var(--accent-soft); color: var(--accent); text-decoration: none; }
+
+  .aula-conteudo :global(h2), .aula-conteudo :global(h3) { scroll-margin-top: 4rem; }
+
+  /* As subseções só aparecem dentro da seção em leitura (lateral e barra do celular). */
+  .aula-grade :global(li:not(.aberta) > .indice-sub) { display: none; }
+
+  /* Desktop: coluna lateral fixa. */
+  @media (min-width: 1100px) {
+    .aula-grade { display: grid; grid-template-columns: minmax(0, var(--measure)) 14rem; gap: 3.5rem; justify-content: center; }
+    .aula-conteudo { margin: 0; }
+    .indice-movel { display: none; }
+    .indice-lateral { display: block; padding-top: 2.4rem; }
+    .indice-lateral nav {
+      position: sticky; top: 2rem; max-height: calc(100vh - 4rem); overflow-y: auto; overscroll-behavior: contain;
+      scrollbar-width: thin; scrollbar-color: var(--border) transparent; padding-right: 0.25rem;
+    }
+    .indice-lateral .rotulo { margin: 0 0 0.9rem 0.9rem; }
+    .topo { display: inline-block; margin: 1.1rem 0 0 0.9rem; font-family: var(--sans); font-size: 0.84rem; color: var(--text-muted); text-decoration: none; }
+    .topo:hover { color: var(--accent); }
+    .aula-conteudo :global(h2), .aula-conteudo :global(h3) { scroll-margin-top: 2rem; }
+  }
+
   .referencias { font-size: 0.95rem; padding-left: 1.2em; }
   .referencias li { margin: 0.5em 0; }
   .referencias a { font-family: var(--sans); font-size: 0.85rem; white-space: nowrap; }

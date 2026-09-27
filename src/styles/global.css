@@ -48,6 +48,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 html { -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 
 body {
   margin: 0;
@@ -69,7 +70,7 @@ h3 { font-size: 1.15rem; margin-top: 1.8em; }
 img { max-width: 100%; height: auto; }
 
 .container { max-width: var(--measure); margin: 0 auto; padding: 0 16px; }
-.container.largo { max-width: 60rem; }
+.container.largo { max-width: 64rem; }
 
 /* Cabeçalho */
 .site-header { border-bottom: 1px solid var(--border); background: var(--bg-elev); font-family: var(--sans); }

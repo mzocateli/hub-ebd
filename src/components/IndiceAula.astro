@@ -1,0 +1,54 @@
+---
+// Índice da aula: seções (h2) com subseções (h3) aninhadas, seguidas das seções fixas da página.
+// Usado na coluna lateral (desktop) e na barra recolhível (celular).
+export interface ItemIndice { depth: number; slug: string; text: string }
+interface Props { itens: ItemIndice[]; extras: ItemIndice[] }
+const { itens, extras } = Astro.props;
+
+const secoes: { item: ItemIndice; filhos: ItemIndice[] }[] = [];
+for (const i of itens) {
+  if (i.depth === 2 || secoes.length === 0) secoes.push({ item: i, filhos: [] });
+  else secoes[secoes.length - 1].filhos.push(i);
+}
+---
+
+<ol class="indice-lista">
+  {
+    secoes.map(({ item, filhos }) => (
+      <li data-secao={item.slug}>
+        <a href={`#${item.slug}`} data-indice-link={item.slug}>{item.text}</a>
+        {filhos.length > 0 && (
+          <ol class="indice-sub">
+            {filhos.map((f) => (
+              <li>
+                <a href={`#${f.slug}`} data-indice-link={f.slug} data-pai={item.slug}>{f.text}</a>
+              </li>
+            ))}
+          </ol>
+        )}
+      </li>
+    ))
+  }
+</ol>
+
+{
+  extras.length > 0 && (
+    <ol class="indice-lista indice-extras">
+      {extras.map((e) => (
+        <li data-secao={e.slug}>
+          <a href={`#${e.slug}`} data-indice-link={e.slug}>{e.text}</a>
+        </li>
+      ))}
+    </ol>
+  )
+}
+
+<style>
+  .indice-lista { list-style: none; margin: 0; padding: 0; font-family: var(--sans); font-size: 0.9rem; line-height: 1.4; }
+  .indice-lista a { display: block; padding: 0.4rem 0 0.4rem 0.9rem; border-left: 2px solid var(--border); color: var(--text-muted); text-decoration: none; }
+  .indice-lista a:hover { color: var(--text); }
+  .indice-lista a[aria-current='true'] { color: var(--accent); border-left-color: var(--accent); font-weight: 600; }
+  .indice-sub { list-style: none; margin: 0; padding: 0; }
+  .indice-sub a { padding: 0.28rem 0 0.28rem 1.7rem; font-size: 0.84rem; }
+  .indice-extras { margin-top: 0.9rem; padding-top: 0.9rem; border-top: 1px solid var(--border); }
+</style>
