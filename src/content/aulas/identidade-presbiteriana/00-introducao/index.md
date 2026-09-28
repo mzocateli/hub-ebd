@@ -16,7 +16,9 @@ termos:
   - confissao-de-fe
   - catecismo
   - confissao-de-fe-de-westminster
+  - padroes-de-westminster
   - canones-de-dort
+  - tres-formas-de-unidade
   - remonstrantes
   - tulip
   - soteriologia
@@ -146,8 +148,10 @@ Para enxergar o conjunto, a série usa seis círculos como mapa de trabalho, de 
 | [[cristianismo-ocidental\|Ocidental]] | Tradição latina, herdeira sobretudo de Agostinho, que pôs pecado, graça e salvação no centro do debate e formou as perguntas que a Reforma retomou. | Qual o peso do pecado e da graça? |
 | [[protestante\|Protestante]] | Igrejas e tradições nascidas da Reforma, que afirmam a autoridade suprema das Escrituras e a justificação pela fé. | Qual a autoridade? Como somos justificados? |
 | [[calvinista\|Calvinista]] | Maneira de ver toda a realidade diante da glória e da soberania de Deus, não apenas a salvação. | Como tudo se ordena para a glória de Deus? |
-| [[reformado\|Reformado]] | Forma confessional e eclesial dessa herança: confissões públicas, culto, sacramentos, aliança e disciplina. | Como confessamos, adoramos e vivemos? |
+| [[reformado\|Reformado]] | Quem confessa essa herança numa confissão de fé reformada, com o culto, os sacramentos, a aliança e a disciplina que ela ensina. | Como confessamos, adoramos e vivemos? |
 | [[presbiteriano\|Presbiteriano]] | Ramo reformado governado por [[presbitero\|presbíteros]] reunidos em [[concilio\|concílios]], que ligam as igrejas entre si e as fazem prestar contas. | Quem governa? Como as igrejas prestam contas? |
+
+**Nesta série, por definição, chamamos de reformado quem confessa uma confissão de fé reformada**, como os [[padroes-de-westminster|Padrões de Westminster]] (Confissão de Fé e Catecismos Maior e Breve, adotados pela IPB) ou as [[tres-formas-de-unidade|Três Formas de Unidade]] (Confissão Belga, Catecismo de Heidelberg e Cânones de Dort).
 
 Este é um **mapa didático** da série, não uma classificação oficial. Muitos autores usam *calvinista* e *reformado* como sinônimos, e o diagrama não decide sozinho quem é ou não é ortodoxo. Cada círculo será aprofundado nas próximas aulas.
 

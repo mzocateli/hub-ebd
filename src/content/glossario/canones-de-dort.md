@@ -2,7 +2,7 @@
 termo: Cânones de Dort
 variantes: [Sínodo de Dort, Dordrecht, Cinco Artigos contra os Remonstrantes]
 resumo: Decisões do Sínodo de Dort (Países Baixos, 1618-1619) em resposta aos cinco artigos dos remonstrantes sobre a graça de Deus na salvação.
-relacionados: [remonstrantes, tulip, soteriologia, reformado]
+relacionados: [remonstrantes, tulip, soteriologia, reformado, tres-formas-de-unidade]
 series: [identidade-presbiteriana]
 fontes:
   - "KAPIC, K. M. Dort, Canons of. In: DAVIE, Martin et al. (org.). New Dictionary of Theology: Historical and Systematic. IVP, 2016, p. 267."
@@ -26,3 +26,5 @@ Cada capítulo tem duas partes: artigos que **afirmam** a doutrina e artigos que
 Os Cânones pedem que essas doutrinas sejam ensinadas com piedade, para **consolar** o povo de Deus, e não para especular sobre os caminhos secretos de Deus.
 
 O próprio documento se apresenta como resposta a **cinco artigos em disputa**, não como sistema completo de teologia. Por isso o [[tulip|TULIP]], que resume esses pontos, não esgota a fé reformada. A conclusão dos Cânones pede que a fé das igrejas reformadas seja julgada **pelas suas confissões públicas**, e não por calúnias ou declarações pessoais de alguns professores.
+
+Com a Confissão Belga e o Catecismo de Heidelberg, os Cânones formam as [[tres-formas-de-unidade|Três Formas de Unidade]], base confessional das igrejas reformadas de origem holandesa.

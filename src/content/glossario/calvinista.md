@@ -13,8 +13,8 @@ O nome vem de João Calvino (1509-1564), reformador de Genebra, mas a tradição
 
 No mapa dos seis círculos, o círculo calvinista pergunta: **como criação, aliança, redenção, igreja, vocação e esperança final se ordenam para a glória de Deus?** A ideia do calvinismo como visão abrangente da realidade, incluindo cultura, trabalho e política, ganhou força especialmente com o teólogo holandês Abraham Kuyper (séculos XIX-XX).
 
-**O calvinismo não é uma denominação.** É uma corrente que atravessa o protestantismo e marcou também anglicanos, batistas e outros. Por isso, um batista que crê nos cinco pontos pode ser chamado de calvinista na doutrina da salvação sem ser [[reformado]] no sentido confessional usado na série.
+**O calvinismo não é uma denominação.** É uma corrente que atravessa o protestantismo e marcou também anglicanos, batistas e outros. Por isso, um batista que crê nos cinco pontos pode ser chamado de calvinista na doutrina da salvação sem ser [[reformado]] no sentido usado na série, que exige confessar uma confissão de fé reformada.
 
 Os "cinco pontos do calvinismo" vêm da resposta do Sínodo de Dort aos arminianos e se tornaram a marca do calvinismo no imaginário popular. Mas o calvinismo não se resume ao [[tulip|TULIP]].
 
-**Ressalva:** muitos autores usam "calvinista" e "[[reformado]]" como sinônimos. A distinção feita nesta série é didática: calvinista nomeia a herança teológica mais ampla; reformado, sua expressão confessional e eclesial histórica.
+**Ressalva:** muitos autores usam "calvinista" e "[[reformado]]" como sinônimos. A distinção feita nesta série é didática: calvinista nomeia a herança teológica mais ampla; reformado, quem confessa essa herança numa confissão de fé reformada, como os [[padroes-de-westminster|Padrões de Westminster]] ou as [[tres-formas-de-unidade|Três Formas de Unidade]].

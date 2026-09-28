@@ -2,7 +2,7 @@
 termo: Confissão de Fé de Westminster
 variantes: [CFW]
 resumo: Confissão redigida pela Assembleia de Westminster (Inglaterra, década de 1640) e adotada pela IPB, junto com os Catecismos Maior e Breve.
-relacionados: [confissao-de-fe, catecismo, presbiteriano, reformado]
+relacionados: [confissao-de-fe, catecismo, padroes-de-westminster, presbiteriano, reformado]
 series: [identidade-presbiteriana]
 fontes:
   - "LEITH, John H. Westminster Confession of Faith. In: Encyclopedia of the Reformed Faith. Westminster/John Knox; Saint Andrew, 1992, p. 393-394."
@@ -10,6 +10,8 @@ fontes:
 ---
 
 Foi redigida por teólogos ingleses com a participação de comissários escoceses. Concluída em dezembro de 1646, foi ratificada pela Igreja da Escócia em 1647 e aprovada pelo Parlamento inglês em 1648. Tornou-se a principal referência doutrinária dos presbiterianos de língua inglesa, e várias confissões batistas do século XVII foram adaptadas a partir dela.
+
+Com os Catecismos Maior e Breve, forma os [[padroes-de-westminster|Padrões de Westminster]].
 
 A **edição adotada pela IPB tem 33 capítulos** e termina em "Do Juízo Final". Algumas versões norte-americanas acrescentam capítulos posteriores, por isso às vezes aparecem contagens diferentes.
 

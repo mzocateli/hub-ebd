@@ -2,7 +2,7 @@
 termo: Confissão de fé
 variantes: [confissão, normas subordinadas]
 resumo: Declaração pública daquilo que a igreja crê. O termo designa tanto o ato de confessar a fé quanto o documento que organiza o que a igreja entende que a Escritura ensina.
-relacionados: [credo, catecismo, confissao-de-fe-de-westminster, reformado]
+relacionados: [credo, catecismo, confissao-de-fe-de-westminster, padroes-de-westminster, tres-formas-de-unidade, reformado]
 series: [identidade-presbiteriana]
 fontes:
   - "GONZÁLEZ, Justo L. Confissão. In: Breve Dicionário de Teologia. Hagnos, 2009, p. 70-71."
@@ -21,4 +21,6 @@ No uso reformado, uma confissão:
 
 Toda igreja tem alguma síntese da fé, mesmo que não a escreva. A pergunta é se essa síntese será pública e subordinada à Bíblia. Igrejas que assumem uma confissão desse modo são chamadas de *confessionais*.
 
-A Constituição da IPB chama a [[confissao-de-fe-de-westminster|Confissão de Fé de Westminster]] e os Catecismos de *sistema expositivo de doutrina e prática*.
+A Constituição da IPB chama a [[confissao-de-fe-de-westminster|Confissão de Fé de Westminster]] e os Catecismos, os [[padroes-de-westminster|Padrões de Westminster]], de *sistema expositivo de doutrina e prática*.
+
+Na série, é justamente confessar uma confissão de fé reformada, como os Padrões de Westminster ou as [[tres-formas-de-unidade|Três Formas de Unidade]], que define alguém como [[reformado]].
