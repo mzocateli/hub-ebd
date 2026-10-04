@@ -15,11 +15,11 @@ export async function getSeries(): Promise<Serie[]> {
   return (await getCollection('series')).sort((a, b) => a.data.ordem - b.data.ordem);
 }
 
-/** Aulas publicadas (sem rascunho), por série e número. */
+/** Aulas publicadas, por série e número. Em `npm run dev`, inclui os rascunhos para revisão. */
 export async function getAulas(serieId?: string): Promise<Aula[]> {
   const aulas = await getCollection(
     'aulas',
-    (a) => !a.data.rascunho && (!serieId || a.data.serie.id === serieId),
+    (a) => (import.meta.env.DEV || !a.data.rascunho) && (!serieId || a.data.serie.id === serieId),
   );
   return aulas.sort(
     (a, b) => a.data.serie.id.localeCompare(b.data.serie.id) || a.data.numero - b.data.numero,
