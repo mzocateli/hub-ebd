@@ -284,9 +284,9 @@ Muitos de nós nascemos dentro desta aliança. Isso é um privilégio real, não
 
 Três livros sobre a aliança, do mais curto ao mais longo:
 
-1. **John Murray, *O Pacto da Graça: um estudo bíblico-teológico*** (Os Puritanos/CLIRE). Cerca de 50 páginas.
-2. **O. Palmer Robertson, *O Cristo dos Pactos*** (Luz Para o Caminho). Cerca de 240 páginas.
-3. **Guy Prentiss Waters, J. Nicholas Reid e John R. Muether (org.), *A Teologia da Aliança: perspectivas bíblica, teológica e histórica*** (Academia). Cerca de 850 páginas.
+1. **John Murray, [*O Pacto da Graça: um estudo bíblico-teológico*](https://www.amazon.com.br/dp/B08DM2ZZH6)** (Os Puritanos). Cerca de 50 páginas.
+2. **O. Palmer Robertson, [*O Cristo dos Pactos*](https://www.editoraculturacrista.com.br/cristo-dos-pactos-o-3a-edicao)** (Cultura Cristã). Cerca de 240 páginas.
+3. **Guy Prentiss Waters, J. Nicholas Reid e John R. Muether (org.), [*A Teologia da Aliança: perspectivas bíblica, teológica e histórica*](https://www.editoraculturacrista.com.br/livros/a-teologia-da-alianca)** (Cultura Cristã). Cerca de 850 páginas.
 
 ### Próxima aula
 
