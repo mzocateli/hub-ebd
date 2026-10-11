@@ -11,6 +11,8 @@ fontes:
 
 Foi redigida por teólogos ingleses com a participação de comissários escoceses. Concluída em dezembro de 1646, foi ratificada pela Igreja da Escócia em 1647 e aprovada pelo Parlamento inglês em 1648. Tornou-se a principal referência doutrinária dos presbiterianos de língua inglesa, e várias confissões batistas do século XVII foram adaptadas a partir dela.
 
+O capítulo I trata da Escritura: a Bíblia é a única regra, e a Escritura interpreta a Escritura (CFW I.VI, I.IX; veja *[[sola-scriptura|sola scriptura]]*). E a própria Confissão reconhece que os concílios podem errar (CFW XXXI.III).
+
 Com os Catecismos Maior e Breve, forma os [[padroes-de-westminster|Padrões de Westminster]].
 
 A **edição adotada pela IPB tem 33 capítulos** e termina em "Do Juízo Final". Algumas versões norte-americanas acrescentam capítulos posteriores, por isso às vezes aparecem contagens diferentes.

@@ -23,6 +23,6 @@ No governo presbiteriano, a autoridade não fica com uma única pessoa, mas com 
 
 Nos concílios, pastores e presbíteros regentes votam em igualdade, e os concílios superiores também servem de instância de recurso para os inferiores. Eles mostram a **conexão entre as igrejas**, uma das marcas do presbiterianismo.
 
-O precedente bíblico costuma ser a reunião de apóstolos e presbíteros em Jerusalém (Atos 15): diante de uma controvérsia, a igreja decidiu em conjunto, e não por uma só pessoa. Para os reformadores, os concílios são assembleias humanas e **podem errar**. Sua autoridade vale na medida em que expõem corretamente a Escritura.
+O precedente bíblico costuma ser a reunião de apóstolos e presbíteros em Jerusalém (Atos 15): diante de uma controvérsia, a igreja decidiu em conjunto, e não por uma só pessoa. Para os reformadores, os concílios são assembleias humanas e **podem errar**. A Confissão de Westminster diz que todos os sínodos e concílios "podem errar, e muitos têm errado", e por isso não são regra de fé e prática, mas auxílio (CFW XXXI.III). Isso não torna suas decisões opcionais: as que estão de acordo com a Palavra devem ser recebidas "com reverência e submissão" (CFW XXXI.II). Sua autoridade é real, mas não absoluta.
 
 Na história da igreja, "concílio" também designa as grandes assembleias da igreja antiga, como Niceia (325), tema da Aula 10.

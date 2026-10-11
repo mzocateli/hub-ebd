@@ -2,7 +2,7 @@
 termo: Confissão de fé
 variantes: [confissão, normas subordinadas]
 resumo: Declaração pública daquilo que a igreja crê. O termo designa tanto o ato de confessar a fé quanto o documento que organiza o que a igreja entende que a Escritura ensina.
-relacionados: [credo, catecismo, confissao-de-fe-de-westminster, padroes-de-westminster, tres-formas-de-unidade, reformado]
+relacionados: [credo, catecismo, confissao-de-fe-de-westminster, padroes-de-westminster, tres-formas-de-unidade, reformado, sola-scriptura]
 series: [identidade-presbiteriana]
 fontes:
   - "GONZÁLEZ, Justo L. Confissão. In: Breve Dicionário de Teologia. Hagnos, 2009, p. 70-71."
@@ -18,6 +18,8 @@ No uso reformado, uma confissão:
 - é **subordinada à Escritura**, que continua sendo a única regra de fé e prática. Por isso as confissões são chamadas de *normas subordinadas*: têm autoridade real, mas abaixo da Bíblia;
 - é **pública**, para que membros e outras igrejas saibam o que ela ensina;
 - é **examinável e revisável** à luz da própria Escritura.
+
+A própria Confissão de Westminster diz que todos os sínodos e concílios "podem errar, e muitos têm errado", e por isso não são regra de fé e prática, mas auxílio (CFW XXXI.III). Mas falível não significa facultativo: as decisões que estão de acordo com a Palavra devem ser recebidas "com reverência e submissão" (CFW XXXI.II). Veja *[[sola-scriptura|sola scriptura]]*.
 
 Toda igreja tem alguma síntese da fé, mesmo que não a escreva. A pergunta é se essa síntese será pública e subordinada à Bíblia. Igrejas que assumem uma confissão desse modo são chamadas de *confessionais*.
 
