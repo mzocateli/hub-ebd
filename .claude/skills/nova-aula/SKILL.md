@@ -26,9 +26,14 @@ Crie `src/content/aulas/<serie>/<NN-slug>/index.md`. Use a Aula 0 (`src/content/
 - Citações lidas em aula como blockquote, com a referência em um parágrafo separado. Destaques em **negrito**, como nos slides.
 - As notas EXPLIQUE/DIGA podem virar texto explicativo. Não use CONDUÇÃO, TRANSIÇÃO, CUIDADO para o professor nem o aprofundamento do guia.
 - Diagramas dos slides: recrie como SVG na pasta da aula (`![descrição](./figura.svg)`), nas cores dos slides.
+- Aula dividida em partes (um `.pptx` por domingo): cada parte vira uma página, em `<NN-slug>-parte-N/`, com `parte: N`. Acrescente `partes: N` ao item do `programa` da série. O PDF fica em `aula-NN-parte-N-slides.pdf`.
 - Marque os termos com `[[slug]]` na primeira ocorrência relevante e liste-os em `termos:` no frontmatter.
 - `data`: a data em que a aula foi dada. Se não souber, pergunte.
 - `referencias`: fontes públicas com link e a bibliografia citada em sala.
+
+### Para aprofundar (opcional)
+
+Se o professor quiser o conteúdo expandido ou se houve pergunta da turma, acrescente depois do resumo, separado por `---`, um `## Para aprofundar` que comece avisando que vai além do que foi dito em sala. Pode usar a Parte 2 do guia e as fontes da pasta da aula (`analises/`, `resources/`), sempre parafraseando textos protegidos. Seções úteis: a pergunta da turma, as passagens mais de perto, uma breve história da doutrina, onde consultar nas confissões, perguntas frequentes e "Para ir além". Confira cada citação bíblica no ARA e cada citação confessional no texto da IPB.
 
 ## 4. Glossário
 

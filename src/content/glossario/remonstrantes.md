@@ -2,7 +2,7 @@
 termo: Remonstrantes
 variantes: [Remonstrância, arminianos]
 resumo: Seguidores de Jacó Armínio que, em 1610, apresentaram cinco artigos contestando a doutrina reformada da graça. Foram respondidos pelo Sínodo de Dort.
-relacionados: [canones-de-dort, tulip, soteriologia]
+relacionados: [canones-de-dort, tulip, soteriologia, eleicao]
 series: [identidade-presbiteriana]
 fontes:
   - "REMONSTRANCE, the. In: CROSS, F. L.; LIVINGSTONE, E. A. (org.). The Oxford Dictionary of the Christian Church. Oxford University Press, 2005, p. 1392."

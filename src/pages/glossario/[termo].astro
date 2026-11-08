@@ -1,7 +1,7 @@
 ---
 import { render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getAulas, getSeries, getTermos, nn, urlAula, urlTermo, type Termo } from '../../lib/conteudo';
+import { getAulas, getSeries, getTermos, rotuloAula, urlAula, urlTermo, type Termo } from '../../lib/conteudo';
 import { url } from '../../lib/url';
 
 export async function getStaticPaths() {
@@ -59,7 +59,7 @@ const { Content } = await render(termo);
           {aulas.map((a) => (
             <li>
               <a href={urlAula(a)}>
-                {tituloSerie.get(a.data.serie.id)} · Aula {nn(a.data.numero)}: {a.data.titulo}
+                {tituloSerie.get(a.data.serie.id)} · {rotuloAula(a)}: {a.data.titulo}
               </a>
             </li>
           ))}

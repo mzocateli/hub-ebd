@@ -23,7 +23,7 @@ programa:
   - { numero: 0, titulo: "Introdução", bloco: introducao }
   - { numero: 1, titulo: "Teologia da Aliança", bloco: fundamentos }
   - { numero: 2, titulo: "Escritura e confissão", bloco: fundamentos }
-  - { numero: 3, titulo: "Decreto, graça soberana e ordem da salvação", bloco: fundamentos }
+  - { numero: 3, titulo: "Decreto, providência e predestinação", bloco: fundamentos, partes: 2 }
   - { numero: 4, titulo: "Batismo, aliança e filhos da igreja", bloco: fundamentos }
   - { numero: 5, titulo: "Ceia do Senhor e meios de graça", bloco: fundamentos }
   - { numero: 6, titulo: "Culto reformado e música na igreja", bloco: fundamentos }

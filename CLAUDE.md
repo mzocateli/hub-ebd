@@ -17,6 +17,7 @@ A turma é de jovens de 20 a 35 anos, leigos, a maioria presbiteriana de berço.
 src/content/
   series/<serie>.md                  # série: blocos + programa completo (aulas futuras aparecem como "em breve")
   aulas/<serie>/<NN-slug>/index.md   # resumo do aluno + imagens co-localizadas
+                                     # aula em partes: <NN-slug>-parte-1/, com `parte: 1`
   glossario/<slug>.md                # um termo por arquivo
 public/downloads/<serie>/            # PDFs dos slides
 fontes/glossario/                    # textos de dicionários (gitignored, NUNCA publicar)
@@ -25,6 +26,7 @@ fontes/glossario/                    # textos de dicionários (gitignored, NUNCA
 - Schemas em `src/content.config.ts`. O build falha se o frontmatter estiver errado. Isso é intencional.
 - `[[slug]]` / `[[slug|rótulo]]` viram links para o glossário (`src/lib/remark-glossario.mjs`). Um slug inexistente quebra o build. **Dentro de tabelas**, escape a barra: `[[slug\|rótulo]]`.
 - No YAML do `programa` da série, títulos com vírgula precisam de aspas.
+- **Aula dada em mais de um domingo:** cada parte é uma página própria, com `parte: N` no frontmatter (URL `aula-NN-parte-N`). No `programa` da série, o item recebe `partes: N`, e as partes ainda não publicadas aparecem como "em breve".
 - "Aparece nas aulas" de cada termo é calculado a partir do campo `termos` das aulas. Mantenha esse campo em dia.
 
 ## Material de origem das aulas
@@ -42,6 +44,8 @@ O professor prepara cada aula fora deste repositório, em `C:\Users\mateu\OneDri
    - a Parte 2 / aprofundamento do guia;
    - instruções de condução (CONDUÇÃO, TRANSIÇÃO, notas de condução);
    - citações que o professor cortou.
+
+   **Exceção: a seção final "Para aprofundar".** Depois do resumo, separada por `---` e aberta por um aviso de que vai além do que foi dito em sala, a aula pode trazer material extra: perguntas da turma, a Parte 2 do guia (explicação das passagens, história, mapa das confissões, perguntas previsíveis) e as fontes de pesquisa da pasta da aula. Valem as mesmas regras de fidelidade confessional e de português. Textos protegidos são parafraseados; citações diretas só de domínio público, traduções nossas ou trechos curtos com referência.
 2. **Os termos seguem o que foi ensinado em aula.** Exemplo: a série usa um mapa didático de **seis círculos** (Cristianismo › Ocidental › Protestante › Calvinista › Reformado › Presbiteriano), em que *calvinista* ≠ *reformado*. Por definição da série, *reformado* é quem confessa uma confissão de fé reformada (Padrões de Westminster, Três Formas de Unidade); o caso dos batistas da Confissão de 1689 fica em aberto até a Aula 18. Quando uma fonte usar o termo de outra forma, mantenha a convenção da aula e, no máximo, registre a divergência.
 3. **Não antecipe aulas futuras** além de uma frase ("tema da Aula N").
 4. **Fidelidade confessional:** a IPB adota a Confissão de Westminster (33 capítulos) e os Catecismos Maior e Breve. Não importe posições de fontes que contrariem a CFW ou a Constituição da IPB (por exemplo, práticas de outras denominações presbiterianas) sem deixar claro que são de outra igreja.

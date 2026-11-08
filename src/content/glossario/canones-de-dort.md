@@ -2,7 +2,7 @@
 termo: Cânones de Dort
 variantes: [Sínodo de Dort, Dordrecht, Cinco Artigos contra os Remonstrantes]
 resumo: Decisões do Sínodo de Dort (Países Baixos, 1618-1619) em resposta aos cinco artigos dos remonstrantes sobre a graça de Deus na salvação.
-relacionados: [remonstrantes, tulip, soteriologia, reformado, tres-formas-de-unidade]
+relacionados: [remonstrantes, tulip, soteriologia, reformado, tres-formas-de-unidade, eleicao]
 series: [identidade-presbiteriana]
 fontes:
   - "KAPIC, K. M. Dort, Canons of. In: DAVIE, Martin et al. (org.). New Dictionary of Theology: Historical and Systematic. IVP, 2016, p. 267."

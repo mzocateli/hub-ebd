@@ -8,7 +8,13 @@ export type Termo = CollectionEntry<'glossario'>;
 export const nn = (n: number) => String(n).padStart(2, '0');
 
 export const urlSerie = (serieId: string) => url(`/series/${serieId}/`);
-export const urlAula = (aula: Aula) => url(`/series/${aula.data.serie.id}/aula-${nn(aula.data.numero)}/`);
+/** "aula-03" ou, se a aula foi dividida, "aula-03-parte-1". */
+export const slugAula = (aula: Aula) =>
+  `aula-${nn(aula.data.numero)}${aula.data.parte ? `-parte-${aula.data.parte}` : ''}`;
+/** "Aula 03" ou "Aula 03 · Parte 1". */
+export const rotuloAula = (aula: Aula) =>
+  `Aula ${nn(aula.data.numero)}${aula.data.parte ? ` · Parte ${aula.data.parte}` : ''}`;
+export const urlAula = (aula: Aula) => url(`/series/${aula.data.serie.id}/${slugAula(aula)}/`);
 export const urlTermo = (termoId: string) => url(`/glossario/${termoId}/`);
 
 export async function getSeries(): Promise<Serie[]> {
@@ -22,7 +28,10 @@ export async function getAulas(serieId?: string): Promise<Aula[]> {
     (a) => (import.meta.env.DEV || !a.data.rascunho) && (!serieId || a.data.serie.id === serieId),
   );
   return aulas.sort(
-    (a, b) => a.data.serie.id.localeCompare(b.data.serie.id) || a.data.numero - b.data.numero,
+    (a, b) =>
+      a.data.serie.id.localeCompare(b.data.serie.id) ||
+      a.data.numero - b.data.numero ||
+      (a.data.parte ?? 0) - (b.data.parte ?? 0),
   );
 }
 

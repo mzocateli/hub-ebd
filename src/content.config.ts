@@ -13,7 +13,13 @@ const series = defineCollection({
       z.object({ id: z.string(), titulo: z.string(), descricao: z.string().optional() }),
     ),
     programa: z.array(
-      z.object({ numero: z.number(), titulo: z.string(), bloco: z.string() }),
+      z.object({
+        numero: z.number(),
+        titulo: z.string(),
+        bloco: z.string(),
+        // Aula dada em mais de um domingo: cada parte é uma página própria (campo `parte` da aula).
+        partes: z.number().int().min(2).optional(),
+      }),
     ),
   }),
 });
@@ -29,6 +35,7 @@ const aulas = defineCollection({
     z.object({
       serie: reference('series'),
       numero: z.number(),
+      parte: z.number().int().positive().optional(),
       titulo: z.string(),
       subtitulo: z.string().optional(),
       data: z.coerce.date(),

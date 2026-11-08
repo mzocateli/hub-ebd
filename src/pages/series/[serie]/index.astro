@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { getAulas, getSeries, nn, urlAula, type Serie } from '../../../lib/conteudo';
+import { getAulas, getSeries, nn, urlAula, type Aula, type Serie } from '../../../lib/conteudo';
 import { url } from '../../../lib/url';
 
 export async function getStaticPaths() {
@@ -10,7 +10,9 @@ export async function getStaticPaths() {
 
 const { serie } = Astro.props as { serie: Serie };
 const aulas = await getAulas(serie.id);
-const porNumero = new Map(aulas.map((a) => [a.data.numero, a]));
+// Uma aula pode ter várias partes (páginas); aqui ficam agrupadas pelo número.
+const porNumero = new Map<number, Aula[]>();
+for (const a of aulas) porNumero.set(a.data.numero, [...(porNumero.get(a.data.numero) ?? []), a]);
 const { titulo, descricao, periodo, blocos, programa } = serie.data;
 ---
 
@@ -30,7 +32,30 @@ const { titulo, descricao, periodo, blocos, programa } = serie.data;
           {bloco.descricao && <p class="muted">{bloco.descricao}</p>}
           <ol class="programa">
             {itens.map((p) => {
-              const aula = porNumero.get(p.numero);
+              const publicadas = porNumero.get(p.numero) ?? [];
+              const aula = publicadas[0];
+              if (p.partes) {
+                const partes = Array.from({ length: p.partes }, (_, i) =>
+                  publicadas.find((a) => a.data.parte === i + 1),
+                );
+                return (
+                  <li class:list={{ planejada: !aula }}>
+                    <span class="num">{nn(p.numero)}</span>
+                    <span>
+                      {aula ? <a href={urlAula(aula)}>{aula.data.titulo}</a> : p.titulo}
+                      <span class="partes">
+                        {partes.map((parte, i) =>
+                          parte ? (
+                            <a href={urlAula(parte)}>Parte {i + 1}</a>
+                          ) : (
+                            <span class="planejada">Parte {i + 1} <small>em breve</small></span>
+                          ),
+                        )}
+                      </span>
+                    </span>
+                  </li>
+                );
+              }
               return (
                 <li class:list={{ planejada: !aula }}>
                   <span class="num">{nn(p.numero)}</span>
@@ -58,5 +83,7 @@ const { titulo, descricao, periodo, blocos, programa } = serie.data;
   .programa a { font-weight: 600; text-decoration: none; }
   .programa a:hover { text-decoration: underline; }
   .planejada { color: var(--planned); }
+  .partes { display: flex; flex-wrap: wrap; gap: 0.3rem 1rem; margin-top: 0.2rem; font-size: 0.88rem; }
+  .programa .partes a { font-weight: 500; text-decoration: underline; }
   .planejada small { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; margin-left: 0.4em; }
 </style>

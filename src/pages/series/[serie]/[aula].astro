@@ -2,7 +2,7 @@
 import { getEntry, render } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import IndiceAula, { type ItemIndice } from '../../../components/IndiceAula.astro';
-import { formatarData, getAulas, getTermos, nn, urlAula, urlSerie, urlTermo, type Aula } from '../../../lib/conteudo';
+import { formatarData, getAulas, getTermos, rotuloAula, slugAula, urlAula, urlSerie, urlTermo, type Aula } from '../../../lib/conteudo';
 import { url } from '../../../lib/url';
 
 export async function getStaticPaths() {
@@ -11,7 +11,7 @@ export async function getStaticPaths() {
     const daSerie = aulas.filter((a) => a.data.serie.id === aula.data.serie.id);
     const i = daSerie.indexOf(aula);
     return {
-      params: { serie: aula.data.serie.id, aula: `aula-${nn(aula.data.numero)}` },
+      params: { serie: aula.data.serie.id, aula: slugAula(aula) },
       props: { aula, anterior: daSerie[i - 1], proxima: daSerie[i + 1] },
     };
   });
@@ -34,7 +34,7 @@ const extras: ItemIndice[] = [
 ];
 ---
 
-<BaseLayout titulo={`Aula ${nn(d.numero)} · ${d.titulo}`} descricao={d.grande_ideia} largo>
+<BaseLayout titulo={`${rotuloAula(aula)} · ${d.titulo}`} descricao={d.grande_ideia} largo>
 <div class="aula-grade">
 <div class="aula-conteudo">
   <p class="migalhas">
@@ -42,7 +42,7 @@ const extras: ItemIndice[] = [
   </p>
 
   <header data-pagefind-body>
-    <p class="rotulo">{serie.data.titulo} · Aula {nn(d.numero)}</p>
+    <p class="rotulo">{serie.data.titulo} · {rotuloAula(aula)}</p>
     <h1 data-pagefind-meta="title">{d.titulo}</h1>
     {d.subtitulo && <p style="font-size: 1.2rem; margin-top: -0.3em">{d.subtitulo}</p>}
     <p class="muted" style="font-family: var(--sans); font-size: 0.9rem">
@@ -126,8 +126,8 @@ const extras: ItemIndice[] = [
   }
 
   <nav class="nav-aulas" aria-label="Aulas da série">
-    {anterior && <a href={urlAula(anterior)}>← Aula {nn(anterior.data.numero)}: {anterior.data.titulo}</a>}
-    {proxima && <a class="proxima" href={urlAula(proxima)}>Aula {nn(proxima.data.numero)}: {proxima.data.titulo} →</a>}
+    {anterior && <a href={urlAula(anterior)}>← {rotuloAula(anterior)}: {anterior.data.titulo}</a>}
+    {proxima && <a class="proxima" href={urlAula(proxima)}>{rotuloAula(proxima)}: {proxima.data.titulo} →</a>}
   </nav>
 </div>
 
