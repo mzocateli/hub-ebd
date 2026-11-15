@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { titulo, descricao = 'Conteúdo das aulas da Escola Bíblica Dominical e glossário de termos.', secao, largo = false } = Astro.props;
-// Google Analytics 4: só no build de produção, só carrega após consentimento e nunca em localhost.
+// Google Analytics 4: só no build de produção, ligado por padrão (a pessoa pode recusar) e nunca em localhost.
 const GA_ID = 'G-FHQJX2BQL1';
 const analytics = import.meta.env.PROD;
 const tituloCompleto = titulo ? `${titulo} · EBD` : 'EBD · Aulas e glossário';
@@ -46,7 +46,7 @@ const atual = (s: Props['secao']) => (s === secao ? 'page' : undefined);
     {
       analytics && (
         <script is:inline define:vars={{ GA_ID }}>
-          // Consentimento de cookies (LGPD). 'aceito' | 'recusado' | null (ainda não decidiu).
+          // Cookies do Analytics: ligados por padrão, com opção de recusar. 'aceito' | 'recusado' | null (ainda não viu o aviso).
           (function () {
             var CHAVE = 'consentimento-cookies';
             var local = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
@@ -85,7 +85,8 @@ const atual = (s: Props['secao']) => (s === secao ? 'page' : undefined);
                 if (tinhaAceito && carregado) location.reload();
               },
             };
-            if (ler() === 'aceito') carregar();
+            // Ativado por padrão (grupo pequeno, decisão do professor): só não carrega se a pessoa recusou.
+            if (ler() !== 'recusado') carregar();
           })();
         </script>
       )
@@ -123,11 +124,11 @@ const atual = (s: Props['secao']) => (s === secao ? 'page' : undefined);
         <div class="aviso-cookies" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
           <p>
             Usamos cookies do Google Analytics apenas para medir as visitas e saber quais conteúdos são mais lidos.
-            Eles só são ativados se você aceitar.
+            Eles já vêm ativados; se preferir, você pode recusar agora ou depois, no link "Cookies" do rodapé.
           </p>
           <div class="aviso-cookies-botoes">
             <button type="button" class="botao-secundario" data-cookies="recusar">Recusar</button>
-            <button type="button" class="botao-primario" data-cookies="aceitar">Aceitar</button>
+            <button type="button" class="botao-primario" data-cookies="aceitar">Ok, entendi</button>
           </div>
         </div>
         <script is:inline>
@@ -142,7 +143,7 @@ const atual = (s: Props['secao']) => (s === secao ? 'page' : undefined);
               aviso.hidden = true;
             });
             var abrir = document.querySelector('[data-abrir-cookies]');
-            if (abrir) abrir.addEventListener('click', function () { aviso.hidden = false; aviso.querySelector('button').focus(); });
+            if (abrir) abrir.addEventListener('click', function () { aviso.hidden = false; aviso.querySelector('.botao-primario').focus(); });
           })();
         </script>
       )
