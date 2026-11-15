@@ -29,7 +29,9 @@ const { Content, headings } = await render(aula);
 const indice: ItemIndice[] = headings.filter((h) => h.depth === 2 || h.depth === 3);
 const extras: ItemIndice[] = [
   ...(termos.length > 0 ? [{ depth: 2, slug: 'termos-da-aula', text: 'Termos desta aula' }] : []),
-  ...(d.slides ? [{ depth: 2, slug: 'material-da-aula', text: 'Material da aula' }] : []),
+  ...(d.slides || d.materiais.length > 0
+    ? [{ depth: 2, slug: 'material-da-aula', text: 'Material da aula' }]
+    : []),
   ...(d.referencias.length > 0 ? [{ depth: 2, slug: 'referencias', text: 'Referências' }] : []),
 ];
 ---
@@ -94,12 +96,21 @@ const extras: ItemIndice[] = [
   }
 
   {
-    d.slides && (
+    (d.slides || d.materiais.length > 0) && (
       <section class="aside-bloco">
         <h2 id="material-da-aula">Material da aula</h2>
-        <a class="botao" href={url(d.slides)} download>
-          Baixar slides (PDF)
-        </a>
+        <div class="materiais">
+          {d.slides && (
+            <a class="botao" href={url(d.slides)} download>
+              Baixar slides (PDF)
+            </a>
+          )}
+          {d.materiais.map((m) => (
+            <a class="botao" href={url(m.arquivo)} download>
+              {m.rotulo}
+            </a>
+          ))}
+        </div>
       </section>
     )
   }

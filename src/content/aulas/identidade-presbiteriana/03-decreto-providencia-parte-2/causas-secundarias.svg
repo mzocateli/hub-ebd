@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-label="Deus, como causa primeira, sustenta e governa as criaturas e suas ações. Abaixo, as causas secundárias: o agricultor, que pensa, quer e rega, e a planta, que absorve água e cresce. O agricultor cuida da planta. São atividades próprias, que dependem de Deus enquanto acontecem.">
+<defs>
+  <marker id="seta" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5f6b76"/></marker>
+</defs>
+<rect width="640" height="400" fill="#ffffff"/>
+<g font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" text-anchor="middle">
+  <rect x="80" y="10" width="480" height="100" rx="12" fill="#2c5234"/>
+  <text x="320" y="52" font-size="22" font-weight="700" letter-spacing="1" fill="#ffffff">DEUS, CAUSA PRIMEIRA</text>
+  <text x="320" y="86" font-size="19" fill="#f3db8e">Sustenta e governa as criaturas e suas ações</text>
+
+  <g stroke="#5f6b76" stroke-width="2.5" marker-end="url(#seta)">
+    <line x1="200" y1="112" x2="140" y2="170"/>
+    <line x1="440" y1="112" x2="500" y2="170"/>
+    <line x1="264" y1="232" x2="372" y2="232"/>
+  </g>
+
+  <rect x="10" y="176" width="250" height="112" rx="12" fill="#e7efe6" stroke="#2c5234" stroke-width="2"/>
+  <text x="135" y="222" font-size="21" font-weight="700" letter-spacing="1" fill="#2c5234">AGRICULTOR</text>
+  <text x="135" y="256" font-size="20" fill="#1c3622">Pensa, quer e rega</text>
+
+  <text x="318" y="220" font-size="18" fill="#5f6b76">cuidado</text>
+
+  <rect x="380" y="176" width="250" height="112" rx="12" fill="#e7efe6" stroke="#2c5234" stroke-width="2"/>
+  <text x="505" y="222" font-size="21" font-weight="700" letter-spacing="1" fill="#2c5234">PLANTA</text>
+  <text x="505" y="256" font-size="20" fill="#1c3622">Absorve água e cresce</text>
+
+  <text x="320" y="334" font-size="20" font-weight="700" letter-spacing="1" fill="#9a7b2e">CAUSAS SECUNDÁRIAS</text>
+  <text x="320" y="366" font-size="19" fill="#1c3622">Atividades próprias, que dependem de Deus</text>
+  <text x="320" y="390" font-size="19" fill="#1c3622">enquanto acontecem</text>
+</g>
+</svg>

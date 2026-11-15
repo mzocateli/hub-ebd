@@ -30,6 +30,7 @@ Crie `src/content/aulas/<serie>/<NN-slug>/index.md`. Use a Aula 0 (`src/content/
 - Marque os termos com `[[slug]]` na primeira ocorrência relevante e liste-os em `termos:` no frontmatter.
 - `data`: a data em que a aula foi dada. Se não souber, pergunte.
 - `referencias`: fontes públicas com link e a bibliografia citada em sala.
+- `materiais` (opcional): outros arquivos do professor para baixar além dos slides (revista, folheto), como lista de `rotulo` + `arquivo` em `public/downloads/<serie>/`. Só publique com a autorização dele.
 
 ### Para aprofundar (opcional)
 

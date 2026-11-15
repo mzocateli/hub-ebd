@@ -19,7 +19,7 @@ src/content/
   aulas/<serie>/<NN-slug>/index.md   # resumo do aluno + imagens co-localizadas
                                      # aula em partes: <NN-slug>-parte-1/, com `parte: 1`
   glossario/<slug>.md                # um termo por arquivo
-public/downloads/<serie>/            # PDFs dos slides
+public/downloads/<serie>/            # PDFs dos slides (campo `slides`) e outros materiais (campo `materiais`: rotulo + arquivo)
 fontes/glossario/                    # textos de dicionários (gitignored, NUNCA publicar)
 ```
 

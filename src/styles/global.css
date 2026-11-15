@@ -140,6 +140,7 @@ a.cartao:hover { border-color: var(--accent); }
 
 .botao { display: inline-flex; align-items: center; gap: 0.4em; font-family: var(--sans); font-size: 0.95rem; padding: 0.5em 1em; border-radius: var(--radius); border: 1px solid var(--accent); color: var(--accent); text-decoration: none; }
 .botao:hover { background: var(--accent-soft); }
+.materiais { display: flex; flex-wrap: wrap; gap: 0.6rem; }
 
 /* Aviso de cookies */
 .aviso-cookies { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 50; max-width: 34rem; margin: 0 auto; padding: 1rem 1.1rem; background: var(--bg-elev); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 8px 28px rgb(0 0 0 / 0.18); font-family: var(--sans); font-size: 0.92rem; line-height: 1.5; }

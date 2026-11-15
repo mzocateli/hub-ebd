@@ -208,7 +208,7 @@ O [[catecismo|Breve Catecismo]] de Westminster (BCW), um dos [[padroes-de-westmi
 
 ### Na Parte 2
 
-Na próxima aula continuamos com a Confissão de Fé (III.I) e passamos às objeções mais comuns ("somos robôs?", "Deus é o autor do pecado?", "por que orar e evangelizar?"), à aplicação e ao resumo.
+A [Parte 2](../aula-03-parte-2/) continua com a Confissão de Fé (III.I e V) e, com a história de Miguel e o pé de feijão, trata de como Deus governa por causas reais, de por que orar e evangelizar, de por que a salvação e a condenação não têm a mesma causa e do que isso muda na vida. As perguntas mais comuns ("somos robôs?", "Deus é o autor do pecado?") estão no "Para aprofundar" dela.
 
 **Antes de perguntar como Deus escolhe, Efésios nos ensina a bendizê-lo porque escolheu: em Cristo, antes da fundação do mundo, para sermos santos e para louvor da sua glória.**
 
@@ -239,7 +239,7 @@ Jesus a apresenta como cumprimento da Escritura, citando o Salmo 41.9: "é, ante
 - Lucas diz que "Satanás entrou em Judas", mas em seguida mostra o próprio Judas agindo: ele "foi entender-se com os principais sacerdotes", "concordou e buscava uma boa ocasião" (Lc 22.3-6). A ação de Satanás não apaga a decisão de Judas.
 - Jesus o advertiu à mesa (Mt 26.21-25) e, no Getsêmani, ainda o chamou de "Amigo" (Mt 26.50).
 
-E Jesus disse: "**ai daquele** por intermédio de quem ele está sendo traído". Um "ai" desses só faz sentido se a culpa é real. A Confissão de Westminster afirma as duas coisas no mesmo parágrafo: Deus ordenou tudo quanto acontece, "porém de modo que **nem Deus é o autor do pecado, nem violentada é a vontade da criatura**" (CFW III.I). É o texto com que começamos a Parte 2.
+E Jesus disse: "**ai daquele** por intermédio de quem ele está sendo traído". Um "ai" desses só faz sentido se a culpa é real. A Confissão de Westminster afirma as duas coisas no mesmo parágrafo: Deus ordenou tudo quanto acontece, "porém de modo que **nem Deus é o autor do pecado, nem violentada é a vontade da criatura**" (CFW III.I). É o texto que lemos na Parte 2.
 
 **O mesmo ato, intenções opostas.** Agostinho (354-430) chamou a atenção para um detalhe: o Novo Testamento usa o mesmo verbo, "entregar", para o Pai, para o Filho e para Judas. O Pai "não poupou o seu próprio Filho, antes, por todos nós o entregou" (Rm 8.32). O Filho "a si mesmo se entregou por mim" (Gl 2.20). E Judas propôs aos sacerdotes: "eu vo-lo entregarei" (Mt 26.15). Agostinho pergunta:
 
@@ -290,7 +290,7 @@ A diferença entre os dois não foi o tamanho do pecado. **O remorso de Judas o 
 - No sentido amplo, sim: a traição estava dentro do propósito de Deus, que a usou para a nossa redenção.
 - Judas, porém, não foi forçado. Agiu por cobiça, por vontade própria e com culpa real, e o bom resultado não o absolveu.
 - Quanto ao seu destino eterno, a Escritura indica a perdição, e a Confissão a atribui ao pecado de Judas, não a uma maldade que Deus tenha posto nele.
-- A Parte 2 da aula retoma essas questões nas objeções.
+- A [Parte 2](../aula-03-parte-2/) volta ao assunto ao ler o que a Confissão diz sobre os que se perdem (CFW III.VII) e ao mostrar por que a salvação e a condenação não têm a mesma causa.
 
 ### Efésios 1 mais de perto
 

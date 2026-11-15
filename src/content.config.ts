@@ -46,6 +46,8 @@ const aulas = defineCollection({
       capa: image().optional(),
       termos: z.array(reference('glossario')).default([]),
       slides: z.string().optional(),
+      // Outros arquivos para baixar (revista, folheto), além dos slides. `arquivo` é um caminho em public/.
+      materiais: z.array(z.object({ rotulo: z.string(), arquivo: z.string() })).default([]),
       referencias: z
         .array(z.object({ texto: z.string(), url: z.string().url().optional() }))
         .default([]),

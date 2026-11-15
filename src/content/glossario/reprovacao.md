@@ -17,4 +17,4 @@ Deus não produz maldade em ninguém, porque ele "a ninguém tenta" (Tiago 1.13)
 
 A própria Confissão pede que essa doutrina seja tratada "com especial prudência e cuidado" (CFW III.VIII). Não sabemos quem são os eleitos nem quem não é, e não nos cabe adivinhar (Deuteronômio 29.29). Por isso o evangelho é anunciado a todos, e a promessa vale para quem vem a Cristo: "o que vem a mim, de modo nenhum o lançarei fora" (João 6.37).
 
-Na série, o tema aparece na seção "Para aprofundar" da Aula 3, a propósito da pergunta sobre Judas.
+Em resumo: ninguém é salvo por mérito, e ninguém é condenado sem culpa. Por que este e não aquele, a Confissão não diz; fala em "inescrutável conselho".
